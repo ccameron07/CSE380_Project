@@ -1,0 +1,29 @@
+classdef Node
+    %UNTITLED Summary of this class goes here
+    %   Detailed explanation goes here
+    
+    properties
+        coords %(x,y) coordinate of node
+        number
+        Nodes
+        Elements
+    end
+    
+    methods
+        
+        function obj = buildNodes(obj)
+            n = 1 ;
+            Nodes = Node.empty(obj.nx+obj.ny+2,0) ;
+            node_index = zeros(obj.nx+1, obj.ny+1) ;
+            for ii = 1:nx+1
+                for jj = 1:ny+1
+                    Nodes(n) = Node(n, ii-1, jj-1) ;
+                    node_index(ii,jj) = n ;
+                    n = n+1 ;
+                end
+            end
+        end
+        
+    end
+    
+end

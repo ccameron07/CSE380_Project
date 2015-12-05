@@ -23,7 +23,7 @@ class Node1d : public Node {
         Node1d(int n_init, double x, int df_init = 0, bool boundary_init = false, double BC_init = 0.0);
  };
 
-class Node2d : Node {
+class Node2d : public Node {
     public:
         Vector2d coords ;
         //Constructor Method
@@ -34,8 +34,7 @@ class Line {
     public:
         vector<Node*> nodes;
         
-        Line(Node& n1, Node& n2) ;
-
+        Line(Node* n1, Node* n2) ;
         void addNodes(int n, vector<Node>& nodes_g, vector<Node*>& nodes_e) ;
 };
 

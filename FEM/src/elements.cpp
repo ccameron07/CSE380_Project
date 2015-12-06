@@ -1,7 +1,7 @@
 #include <vector>
 #include "./eigen3/Eigen/Dense"
 #include "elements.hpp"
-
+#include <iostream>
 /*
 using namespace Eigen ;
 using namespace std ;
@@ -17,7 +17,7 @@ class Node {
 */
 
 Node::Node(int n_init, int df_init, bool boundary_init, double BC_init) {
-    n = n_init ;
+    ind = n_init ;
     df = df_init ;
     boundary = boundary_init;
     BC = BC_init ;
@@ -78,29 +78,125 @@ double Element1d::master_2_global( double xi ) {
     return x ;
 }
 
-vector<double> Element1d::Element1d::quadrature(int n) {
-    vector<double> w_xi ;
+void Element1d::Element1d::quadrature(int n) {
     int ind = (quad_pts-1)*quad_pts/2 + n ;
-
-    static const double w []  = {2.0,1.0, 1.0,
-                                0.8888888888888888888888889,
-                                0.5555555555555555555555556,
-                                0.5555555555555555555555556,
-                                0.6521451548625461426269361,
-                                0.6521451548625461426269361,
-                                0.3478548451374538573730639,
-                                0.3478548451374538573730639} ;
+    vector<double> ws {2.0,1.0, 1.0,
+                            0.8888888888888888888888889,
+                            0.5555555555555555555555556,
+                            0.5555555555555555555555556,
+                            0.6521451548625461426269361,
+                            0.6521451548625461426269361,
+                            0.3478548451374538573730639,
+                            0.3478548451374538573730639} ;
     
-    static const double xi [] = {0.0,
-                                0.5773502691896257645091488,
-                                0.5773502691896257645091488,
-                                0.0,
-                                0.7745966692414833770358531,
-                                0.7745966692414833770358531,
-                                0.3399810435848562648026658,
-                                0.3399810435848562648026658,
-                                0.8611363115940525752239465,
-                                0.8611363115940525752239465} ;
-    w_xi.push_back(w[n]) ;
-    w_xi.push_back(xi[n]) ;
+    vector<double> xis {0.0,
+                            0.5773502691896257645091488,
+                            -0.5773502691896257645091488,
+                            0.0,
+                            0.7745966692414833770358531,
+                            -0.7745966692414833770358531,
+                            0.3399810435848562648026658,
+                            -0.3399810435848562648026658,
+                            0.8611363115940525752239465,
+                            -0.8611363115940525752239465} ;
+    w = ws[ind];
+    xi = xis[ind];
+}
+
+double Element1d::shape(int n, double xi) {
+    double psi ;
+    
+    switch(order){
+        case 1:
+            switch(n){
+                case 0:
+                    psi = 0.5*(1.0-xi);
+                    return psi ;
+                    break ;
+                case 1:
+                    psi = 0.5*(1.0+xi);
+                    return psi ;
+                    break ;
+            }
+
+        case 2:
+            switch(n){
+                case 0:
+                    psi = 0.5*xi*(xi-1.0);
+                    return psi ;
+                    break ;
+                case 1:
+                    psi = (1.0-xi*xi);
+                    return psi ;
+                    break ;
+                case 2:
+                    psi = 0.5*xi*(xi+1.0);
+                    return psi ;
+                    break ;           
+            }
+    }
+}
+
+double Element1d::dshape(int n, double xi) {
+    double dpsi ;
+
+    switch(this->order){
+        case 1:
+            switch(n){
+                case 0:
+                    dpsi = -0.5;
+                    return dpsi/jac_det ;
+                    break ;
+                case 1:
+                    dpsi = 0.5;
+                    return dpsi/jac_det ;
+                    break ;
+            }
+
+        case 2:
+            switch(n){
+                case 0:
+                    dpsi = xi-0.5;
+                    return dpsi/jac_det ;
+                    break ;
+                case 1:
+                    dpsi = 1.0-2.0*xi;
+                    return dpsi/jac_det ;
+                    break ;
+                case 2:
+                    dpsi = xi+0.5;
+                    return dpsi/jac_det ;
+                    break ;           
+            }
+    }
+}
+
+void Element1d::kfCalc(MatrixXd &A, VectorXd &b) {
+
+    int size = A.rows() ;
+    double stiffness = 1.0 ;
+    double force = 1.0 ;
+    int i_g, j_g ;
+
+    for(int i = 0 ; i < order+1 ; i++) {
+        i_g = Nodes[i]->ind ;
+
+        for(int j = 0 ; j < order+1 ; j++) {
+            j_g = Nodes[j]->ind ;
+
+            for(int k=0; k < quad_pts; k++) {
+                quadrature(k);
+                A(i_g,j_g) += w*stiffness*dshape(i,xi)*dshape(j,xi) ;
+            }
+
+            A(i_g,j_g) *= jac_det ;
+        }
+
+        for(int k=0; k < quad_pts; k++) {
+                quadrature(k);
+                b(i_g) += w*force*shape(i,xi) ;
+        }
+
+        b(i_g) *= jac_det ;
+    }
 }

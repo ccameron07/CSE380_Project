@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/pecos/!svn/ver/25029/hpct/trunk/test/ref_files/adir/bdir
+END
+cfile
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/pecos/!svn/ver/25029/hpct/trunk/test/ref_files/adir/bdir/cfile
+END

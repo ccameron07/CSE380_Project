@@ -1,0 +1,116 @@
+#
+# Spec file for GRVY Toolkit
+#
+Summary:      GRVY is a toolkit library for HPC Application Development
+Name:         grvy
+Version:      @VERSION@
+Release:      1
+License:      GPL
+Group:        applications
+Source:       grvy-%{version}.tar.gz
+Distribution: Koomie Linux
+Vendor:       Koomie
+Packager:     karl@ices.utexas.edu
+
+BuildRoot: /var/tmp/%{name}-%{version}-buildroot
+
+%define _topdir /h1/karl/build/rpms/
+
+# PECOS Library settings
+
+%define APPS /org/centers/pecos
+%define MODULES derived_modulefiles
+
+%include compiler-defines.inc
+
+%define INSTALL_DIR %{APPS}/LIBRARIES/%{name}/%{APPSUB}/%{version}
+%define MODULE_DIR  %{APPS}/%{MODULES}/%{APPSUB}/%{name}
+
+%package -n %{name}-%{comp_fam_ver}
+Summary:      GRVY is a toolkit library for HPC Application Development
+Group:        applications
+
+%description
+%description -n %{name}-%{comp_fam_ver}
+
+The GRVY Toolkit is a library used to house various support functions
+often required for application development of high-performance,
+scientific applications. The library is written in C++, but provides
+an API for development in C and Fortran.
+
+%prep
+
+rm -rf $RPM_BUILD_ROOT/%{INSTALL_DIR}
+mkdir -p $RPM_BUILD_ROOT/%{INSTALL_DIR}
+
+%setup
+
+%build
+
+%include compiler-load.inc
+
+# Add external module dependencies here
+
+module load boost
+
+./configure --prefix=%{INSTALL_DIR}
+make -j 2
+make DESTDIR=$RPM_BUILD_ROOT install
+
+rm -rf $RPM_BUILD_ROOT/%{MODULE_DIR}
+mkdir -p $RPM_BUILD_ROOT/%{MODULE_DIR}
+cat > $RPM_BUILD_ROOT/%{MODULE_DIR}/%{version} << 'EOF'
+#%Module1.0###################################################################
+#
+# This modulefile setups the environment for the GRVY Toolkit.
+#
+##############################################################################
+
+
+proc ModulesHelp { } {
+puts stderr "The %{name} module file defines the following environment variables:"
+puts stderr "GRVY_DIR, GRVY_LIB, and GRVY_INC for the location of the "
+puts stderr "GRVY distribution.\n"
+
+puts stderr "To use the GRVY library, compile the source code with the option:"
+puts stderr ""
+puts stderr "\t-I\$GRVY_INC "
+puts stderr "\nand add the following options to the link step: "
+puts stderr ""
+puts stderr "\t-L\$GRVY_LIB -lgrvy"
+puts stderr ""
+puts stderr "\npkg-config may also be used to find compile and link options."
+
+puts stderr "\nVersion %{version}"
+
+}
+
+prepend-path    LD_LIBRARY_PATH   %{INSTALL_DIR}/lib
+prepend-path    PKG_CONFIG_PATH   %{INSTALL_DIR}/lib/pkgconfig
+prepend-path    INCLUDE           %{INSTALL_DIR}/include
+
+setenv GRVY_DIR %{INSTALL_DIR}
+setenv GRVY_INC %{INSTALL_DIR}/include
+setenv GRVY_LIB %{INSTALL_DIR}/lib
+
+EOF
+
+cat > $RPM_BUILD_ROOT/%{MODULE_DIR}/.version.%{version} << 'EOF'
+#%Module1.0#################################################
+##
+## version file for GRVY
+##
+ 
+set     ModulesVersion      "%{version}"
+EOF
+
+%files -n %{name}-%{comp_fam_ver}
+%defattr(-,karl,pecos)
+%{INSTALL_DIR}
+%{MODULE_DIR}/.version.%{version}
+%{MODULE_DIR}/%{version}
+
+%post
+
+%clean
+rm -rf $RPM_BUILD_ROOT

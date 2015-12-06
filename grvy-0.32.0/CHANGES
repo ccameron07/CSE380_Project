@@ -1,0 +1,161 @@
+
+Version 0.32 (22 May 2012)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.32.0
+
+  * significantly expanded online documentation
+  * bug fix for embedded timers sometimes reporting incorrect mean/variance values
+  * slight refactoring of input parsing mechanism
+  * updated autotools bootstrapping mechanism to use autoreconf
+  * migrated additional portions of Fortran interface to leverage iso_c_bindings 
+  * increased minimum autoconf requirement to v2.65
+  * fixed runtime crash for timers when init() function not called
+  * fixed timer_summarize() output when finalize() routine not called
+  * updated potential timer inaccuracy warnings to only occur once during timer summarize()
+  * added new query functions for min/max timer values
+  * fix for timer summarize() when no prior timer finalize() call was provided
+  * added an "--enable-boost-headers-only" compile mode. This will disable 
+    some functionality (grvy_copy_dir in particular), but allows for a GRVY
+    build using Boost headers only
+  * minimum Boost version required updated to 1.46 when building with Boost headers only
+  * minimum Boost version required updated to 1.47 when linking against Boost libs
+  * removed dependency on Boost program_options library
+  * removed dependency on Boost regex library
+  * added runtime option to dump individual read/write statistics for MPI ocore  
+  * addition of grvy_input_fread_logical() function for parsing logicals in F90
+  * addition of grvy_copy_dir() function which recursively copies
+    contents of existing directory to a new directory
+  * configuration updates to support "make distcheck"
+
+Version 0.31 (09 October 2011)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.31.0
+
+  * additional std::string handling input support
+  * addition of MPI based out-of-core ramdisk utility
+  * added optional --enable-mpi configure to enable MPI-based utilities
+  * re-enabled support for VPATH builds   
+  * fix for grvy_check_file_path() when absolute paths provided as input  
+  * regression test updates for compatibility with gcc 4.6.0
+  * standalone version binary renamed to grvy_version
+  * fix ascii output conversion when including subtimers option (-a) with gdump
+
+Version 0.30.0 (28 March 2011)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.30.0
+
+  * addition of function to allow for wider timer summary output options
+  * add defensive warning against dos newlines for input parsing
+  * addition of historical performance logging capability using HDF
+  * initial addition of HDF5 convenience class for I/O related operations
+  * configuration update to allow for optional HDF5 library linkage
+  * migrated portions of Fortran interface to use iso_c_bindings 
+  * updated Fortran interface to trim trailing white space for input parsing filename
+  * updated Fortran library linkage (use -lgrvy and -lgrvyf)
+  * addition of grvy_log_setmask() function to override default log mask
+  * deprecated hpct-based api, all library access should use grvy semantics
+  * performance timer class public interface included in grvy.h
+  * build system fix for parallel builds
+
+Version 0.29.1 (26 September 2010)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.29.1
+
+  * bug fix in mixed language input parsing of multiple files resulting in double free()
+  * inclusion of versioning routines in Fortran interface
+  * updated regressions
+
+Version 0.29 (21 September 2010)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.29
+
+  * bug fix in timer counting statistic (affects embedded timers only)
+  * inclusion of automatic licensing header support
+  * C++ class for input parsing included in grvy.h
+  * added/improved regressions
+  * removal of getpot header from install target
+  * added support for GNU code coverage analysis (--enable-coverage)
+
+Version 0.28 (18 August 2010)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.28
+
+  * performance timing functionality updated to allow for embedded timers
+  * addition of grvy_printf() function for C/C++ logging
+  * exposed individual timer query to Fortran
+  * exposed timing statistics via separate count,mean,variance routines
+  * added/improved Fortran regressions
+  * addition of library versioning routines
+  * tarball distribution includes svn version info
+
+Version 0.27.1 (15 April 2010)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.27.1
+
+  * bug fix for thread-safe Getpot version
+  * direct -lhpct linkage supported but will be deprecated in future releases
+  * pkg-config update for name change
+  * bug fix to include previous hpct.h header in install target
+  * minor updates to logger documentation
+
+Version 0.27 (06 March 2010)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.27
+
+  * name/API change -> HPCT is now GRVY (affects all routines). Note
+    that the previous hpct named functions are still available in this
+    release, but will be deprecated in a future version.
+  * addition of simple logging facility (grvy_log)
+  * minor updates for informational parsing messages
+  * switch to using a common version of GetPot (shared with libMesh)
+  * some additional documentation included
+  * bug fix for hpct_create_unique_dir() on MacOS
+
+Version 0.26 (08 November 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.26
+
+  * inclusion of doxygen generated documentation
+  * creation of math class using Boost to provide an isnan interface
+
+Version 0.25.2 (11 September 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.25.2
+
+  * updated timer accuracy checks to avoid false positive warnings
+
+Version 0.25.1 (05 September 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.25.1
+
+  * bug fix for F90 interface version of vector reads (for static arrays)
+
+Version 0.25 (27 August 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.25
+
+  * compile-time bug fixes for gcc 4.3.x
+  * inclusion of toggle_message() option in Fortran interface
+  * creation of f90 hpct module interface to provide type checking (include "use hpct" to access)
+  * new function to query global elapsed time 
+  * new function to create parent directories for desired output file
+
+Version 0.24 (26 July 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/releases/0.24
+
+  * API change for hpct_timer_init (char *name) - name is now required
+  * inclusion of basic statistics for performance timers (mean/variance/count)
+  * now requires Boost library linkage
+
+Version 0.23 (12 June 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/tags/0.23-release
+
+  * addition of routines to register default input variable values
+  * extension of timer API to provide raw timing results for a specific timer
+  * added new file dump option which includes a user-specified delimiter
+  * added automake style test suite ("make check")
+  * added pkg-config support
+  * bug fix for incorrect performance timing output with multiple init calls
+
+Version 0.22 (27 Feb 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/tags/0.22-release
+
+  * inclusion of Fortran API for performance timer functions
+  * inclusion of examples/ dir
+  * bug fix for string character reads from Fortran
+  * bug fix for lack of Fortran fclose interface
+
+Version 0.20 (10 Jan 2009)
+https://svn.ices.utexas.edu/repos/pecos/hpct/tags/0.2-release
+
+  * addition of wallclock performance timer based on user-defined keys (C only)
+  * autoconf/automake based configuration
+  * initial working version with input file parsing support

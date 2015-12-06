@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/pecos/!svn/ver/19089/hpct/trunk/test/ref_files/perf_test/mymachine
+END
+example1.pruned
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/pecos/!svn/ver/19089/hpct/trunk/test/ref_files/perf_test/mymachine/example1.pruned
+END
+example1
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/pecos/!svn/ver/19089/hpct/trunk/test/ref_files/perf_test/mymachine/example1
+END

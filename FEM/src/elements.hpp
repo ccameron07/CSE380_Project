@@ -10,7 +10,7 @@ class Node {
     private:
         Node(){ } 
     public:
-        int n, df ;
+        int ind, df ;
         bool boundary ;
         double BC ;
         Node ( int n_init, int df_init = 0, bool boundary_init = false, double BC_init = 0.0 );
@@ -43,9 +43,9 @@ class Element {
         Element(){ }
     public:
         int ind, order, quad_pts ;
-        double jac_det ;
-        virtual vector<double> quadrature(int n) {vector<double> v; return v; };
-        void kf_calc(MatrixXd &k_global, VectorXd &f_global);
+        double jac_det, w, xi ;
+        virtual void quadrature(int n) { };
+        void kfCalc(MatrixXd &A, VectorXd &b);
 };
 
 class Element1d : public Element {
@@ -55,9 +55,13 @@ class Element1d : public Element {
         vector<Line1d*> Edges;
         //MatrixXd k_local;
         //VectorXd f_local;  
-        virtual vector<double> quadrature(int n);
+        virtual void quadrature(int n);
         double master_2_global( double xi ) ;
         void jacobian_calc() ;
+        void kfCalc(MatrixXd &A, VectorXd &b);
+        double shape(int n, double xi);
+        double dshape(int n, double xi);
+
 };
 
 #endif

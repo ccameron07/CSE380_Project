@@ -6,7 +6,7 @@
 
 TEST_CASE( "Node Default Constructor", "[Node]" ) {
     Node n(2) ;
-    CHECK( n.n == 2 ) ;
+    CHECK( n.ind == 2 ) ;
     CHECK( n.df == 0 ) ;
     CHECK( n.boundary == false ) ;
     CHECK( n.BC == 0 ) ;
@@ -14,7 +14,7 @@ TEST_CASE( "Node Default Constructor", "[Node]" ) {
 
 TEST_CASE( "Node Full Constructor", "[Node]" ) {
     Node n1(5, 1, true, 4) ;
-    CHECK( n1.n == 5) ;
+    CHECK( n1.ind == 5) ;
     CHECK( n1.df == 1 ) ;
     CHECK( n1.boundary == true ) ;
     CHECK( n1.BC == 4 ) ;
@@ -22,7 +22,7 @@ TEST_CASE( "Node Full Constructor", "[Node]" ) {
 
 TEST_CASE( "Node1d Default Constructor", "[Node][Node1d]" ) {
     Node1d n1d(0, 25.6) ;
-    CHECK( n1d.n == 0 ) ;
+    CHECK( n1d.ind == 0 ) ;
     CHECK( n1d.coords == Approx(25.6) ) ;
     CHECK( n1d.df == 0 ) ;
     CHECK( n1d.boundary == false ) ;
@@ -30,7 +30,7 @@ TEST_CASE( "Node1d Default Constructor", "[Node][Node1d]" ) {
 }
 TEST_CASE( "Node1d Full Constructor", "[Node][Node1d]" ) {
     Node1d n1d1(5, 0.000001, 1, true, 4) ;
-    CHECK( n1d1.n == 5 ) ;
+    CHECK( n1d1.ind == 5 ) ;
     CHECK( n1d1.coords == Approx(0.000001) ) ;
     CHECK( n1d1.df == 1 ) ;
     CHECK( n1d1.boundary == true ) ;
@@ -39,7 +39,7 @@ TEST_CASE( "Node1d Full Constructor", "[Node][Node1d]" ) {
 
 TEST_CASE( "Node2d Default Constructor", "[Node][Node2d]" ) {
     Node2d n2d(0, 25.6, 17.1) ;
-    CHECK( n2d.n == 0 ) ;
+    CHECK( n2d.ind == 0 ) ;
     CHECK( n2d.coords(0) == Approx(25.6) ) ;
     CHECK( n2d.coords(1) == Approx(17.1) ) ;
     CHECK( n2d.df == 0 ) ;
@@ -49,7 +49,7 @@ TEST_CASE( "Node2d Default Constructor", "[Node][Node2d]" ) {
 
 TEST_CASE( "Node2d Full Constructor", "[Node][Node2d]" ) {
     Node2d n2d1(5, 0.000001, 0.002, 1, true, 4) ;
-    CHECK( n2d1.n == 5 ) ;
+    CHECK( n2d1.ind == 5 ) ;
     CHECK( n2d1.coords(0) == Approx(0.000001) ) ;
     CHECK( n2d1.df == 1 ) ;
     CHECK( n2d1.boundary == true ) ;
@@ -62,7 +62,7 @@ TEST_CASE( "Line Constructor with Node element", "[Line]") {
     Line1d L1(&n1, &n2) ;
 
     CHECK( L1.nodes[0] == &n1 ) ;
-    CHECK( L1.nodes[0]->n == n1.n ) ;
+    CHECK( L1.nodes[0]->ind == n1.ind ) ;
     CHECK( L1.nodes[1] == &n2 ) ;
     CHECK( L1.nodes[1]->df == n2.df ) ;
 }
@@ -99,7 +99,7 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
     
     std::vector<Node1d*> nodes_g ;
     nodes_g.push_back(&n0);
-    nodes_g.push_back(&n1);
+    nodes_g.push_back(&n2);
 //    nodes_g.push_back(&n2);
     
     Line1d L0(&n0, &n1) ;
@@ -111,17 +111,26 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
   //  lines_g.push_back(&L1);
   //  lines_g.push_back(&L2);
  
-    Element1d E(0, 1, 3, nodes_g, lines_g) ;  
+    Element1d E(0, 1, 2, nodes_g, lines_g) ;  
 
     CHECK( E.jac_det == 0.5 ) ;
     CHECK( E.Edges.size() == 1 ) ;
     CHECK( E.Nodes.size() == 2 ) ;
+
+    CHECK( E.order == 1) ;
+    CHECK( E.quad_pts == 3) ;
     
-    vector<double> w_xi ;
-    w_xi = E.quadrature(0) ;
-    CHECK( w_xi[0] == Approx( 0.8888888888888888888888889) );
-    CHECK( w_xi[1] == Approx(0.0) ) ;
-    w_xi = E.quadrature(1) ; 
-    CHECK( w_xi[1] == Approx( 0.7745966692414833770358531 ) ) ;
-    CHECK( w_xi[0] == Approx(0.5555555555555555555555556 ) ) ;
+    E.quadrature(0) ;
+    CHECK( E.w == Approx(0.8888888888888888888888889) );
+    CHECK( E.xi == Approx(0.0) ) ;
+
+    E.quadrature(1) ; 
+    CHECK( E.xi == Approx(0.7745966692414833770358531) ) ;
+    CHECK( E.w == Approx(0.5555555555555555555555556) ) ;
+
+    MatrixXd A = MatrixXd::Zero(3,3) ;
+    VectorXd b = VectorXd::Zero(3) ;
+
+    E.kfCalc(A, b);
+    std::cout << A << std::endl << b << std::endl ;
 }

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/pecos/!svn/ver/29472/hpct/trunk/test/ref_files
+END
+hdf_timer.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/pecos/!svn/ver/29472/hpct/trunk/test/ref_files/hdf_timer.txt
+END
+summarize.expanded.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/pecos/!svn/ver/17608/hpct/trunk/test/ref_files/summarize.expanded.txt
+END
+gdump.help
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/pecos/!svn/ver/29154/hpct/trunk/test/ref_files/gdump.help
+END
+summarize.std.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/pecos/!svn/ver/17608/hpct/trunk/test/ref_files/summarize.std.txt
+END
+gadd.help
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/pecos/!svn/ver/29180/hpct/trunk/test/ref_files/gadd.help
+END
+log_priorities.txt
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/pecos/!svn/ver/15458/hpct/trunk/test/ref_files/log_priorities.txt
+END
+log_priorities_printf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/pecos/!svn/ver/11166/hpct/trunk/test/ref_files/log_priorities_printf.txt
+END
+solution.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/pecos/!svn/ver/25130/hpct/trunk/test/ref_files/solution.txt
+END
+solution.C.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/pecos/!svn/ver/25130/hpct/trunk/test/ref_files/solution.C.txt
+END

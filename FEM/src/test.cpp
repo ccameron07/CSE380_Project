@@ -90,3 +90,38 @@ TEST_CASE( "Test addNodes method of Line", "[Line]") {
     CHECK( nodes_e.size() == 5 ) ;
     CHECK( nodes_g.size() == 5 ) ;
 }
+        
+        
+TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
+    Node1d n0(0, 0.0) ;
+    Node1d n1(1, 1.0) ;
+    Node1d n2(2, 0.2) ;
+    
+    std::vector<Node1d*> nodes_g ;
+    nodes_g.push_back(&n0);
+    nodes_g.push_back(&n1);
+//    nodes_g.push_back(&n2);
+    
+    Line1d L0(&n0, &n1) ;
+    Line1d L1(&n1, &n2) ;
+    Line1d L2(&n2, &n0) ;
+
+    std::vector<Line1d*> lines_g ;
+    lines_g.push_back(&L0);
+  //  lines_g.push_back(&L1);
+  //  lines_g.push_back(&L2);
+ 
+    Element1d E(0, 1, 3, nodes_g, lines_g) ;  
+
+    CHECK( E.jac_det == 0.5 ) ;
+    CHECK( E.Edges.size() == 1 ) ;
+    CHECK( E.Nodes.size() == 2 ) ;
+    
+    vector<double> w_xi ;
+    w_xi = E.quadrature(0) ;
+    CHECK( w_xi[0] == Approx( 0.8888888888888888888888889) );
+    CHECK( w_xi[1] == Approx(0.0) ) ;
+    w_xi = E.quadrature(1) ; 
+    CHECK( w_xi[1] == Approx( 0.7745966692414833770358531 ) ) ;
+    CHECK( w_xi[0] == Approx(0.5555555555555555555555556 ) ) ;
+}

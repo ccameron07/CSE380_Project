@@ -44,14 +44,13 @@ class Element {
     public:
         int ind, order, quad_pts ;
         double jac_det ;
-        virtual vector<double> quadrature(int n);
+        virtual vector<double> quadrature(int n) {vector<double> v; return v; };
         void kf_calc(MatrixXd &k_global, VectorXd &f_global);
 };
 
 class Element1d : public Element {
-    private:
-        Element1d(int ind_init, int order_init, int quad_init, vector<Node1d*> Nodes_init, vector<Line1d*> Edges_init);
     public:
+        Element1d(int ind_init, int order_init, int quad_init, vector<Node1d*> Nodes_init, vector<Line1d*> Edges_init);
         vector<Node1d*> Nodes;
         vector<Line1d*> Edges;
         //MatrixXd k_local;

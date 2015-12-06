@@ -57,12 +57,36 @@ TEST_CASE( "Node2d Full Constructor", "[Node][Node2d]" ) {
 }
 
 TEST_CASE( "Line Constructor with Node element", "[Line]") {
-    Node n1(0, 0.0) ;
-    Node n2(1, 0.1) ;
-    Line L1(&n1, &n2) ;
+    Node1d n1(0, 0.0) ;
+    Node1d n2(1, 0.1) ;
+    Line1d L1(&n1, &n2) ;
 
     CHECK( L1.nodes[0] == &n1 ) ;
     CHECK( L1.nodes[0]->n == n1.n ) ;
     CHECK( L1.nodes[1] == &n2 ) ;
     CHECK( L1.nodes[1]->df == n2.df ) ;
+}
+
+TEST_CASE( "Test addNodes method of Line", "[Line]") {
+    Node1d n1(0, 0.0) ;
+    Node1d n2(1, 0.1) ;
+    Node1d n3(2, 0.2) ;
+    
+    std::vector<Node1d> nodes_g ;
+    nodes_g.push_back(n1);
+    nodes_g.push_back(n2);
+    nodes_g.push_back(n3);
+    
+    std::vector<Node1d*> nodes_e ;
+    for(int i = 0 ; i<3 ; i++){
+        nodes_e.push_back(&nodes_g[i]);
+    }
+    
+    Line1d L1(&n1, &n2) ;
+    
+    L1.addNodes(2, nodes_g, nodes_e) ; 
+
+    CHECK( L1.nodes.size() == 4 ) ;
+    CHECK( nodes_e.size() == 5 ) ;
+    CHECK( nodes_g.size() == 5 ) ;
 }

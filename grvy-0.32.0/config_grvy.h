@@ -8,7 +8,7 @@
 #define BUILD_ARCH "x86_64-apple-darwin15.0.0"
 
 /* Build date */
-#define BUILD_DATE "2015-12-03 21:35"
+#define BUILD_DATE "2015-12-07 13:38"
 
 /* Dev/Release build */
 #define BUILD_DEVSTATUS "Development Build"

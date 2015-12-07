@@ -135,6 +135,8 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
     CHECK( E.xi == Approx(0.7745966692414833770358531) ) ;
     CHECK( E.w == Approx(0.5555555555555555555555556) ) ;
 
+    E.stiffness = [] (double x){return 1;} ;
+    E.forcing = [] (double x){return 1;} ;
     MatrixXd A = MatrixXd::Zero(3,3) ;
     VectorXd b = VectorXd::Zero(3) ;
 
@@ -146,7 +148,6 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
 
     CHECK( (A-A_e).sum() == Approx(0.0) );
     CHECK( (b-b_e).sum() == Approx(0.0) );
-    E1.AbCalc(A, b);
 
 }
 
@@ -160,6 +161,9 @@ TEST_CASE( "Test Instantiate a Domain1d", "[Domain1d]") {
 	double dirichlet_init = 0.0 ;
 
 	Domain1d Domain(order_init, nx_init, quad_pts_init, Xmin_init, Xmax_init, dirichlet_init ) ;
+
+	Domain.forcing = [] (double x){return 1 ;} ;
+	Domain.stiffness = [] (double x){return 1;} ;
 
 	CHECK( Domain.Elements.capacity() == 3 ) ;
     CHECK( Domain.Nodes.capacity() == 4 ) ;
@@ -209,7 +213,7 @@ TEST_CASE( "Test Instantiate a Domain1d", "[Domain1d]") {
 TEST_CASE( "Test Build Domain and Solve", "[Solver]") {
 	
 	int order_init = 1 ; 
-	int nx_init = 100 ; 
+	int nx_init = 3 ; 
 	int quad_pts_init = 3 ; 
 	double Xmin_init = 0.0 ; 
 	double Xmax_init = 3.0 ; 
@@ -217,12 +221,17 @@ TEST_CASE( "Test Build Domain and Solve", "[Solver]") {
 	int method_init = 0 ;
 	double tol_init = 1e-11 ;
 	int max_iter_init = 10000 ;
+	int report_interval_init = 10 ;
+	bool report_init = true ;
 
 	Domain1d Domain(order_init, nx_init, quad_pts_init, Xmin_init, Xmax_init, dirichlet_init ) ;
+	Domain.forcing = [] (double x){return 1;} ;
+	Domain.stiffness = [] (double x){return 1;} ;
+
 	Domain.build_elements( ) ;
 
-	Solver Jacobi(method_init, tol_init, max_iter_init) ;
-	Solver GaussSeidel(1, tol_init, max_iter_init) ;
+	Solver Jacobi(method_init, tol_init, max_iter_init, report_interval_init, report_init) ;
+	Solver GaussSeidel(1, tol_init, max_iter_init, report_interval_init, report_init) ;
 
  	Jacobi.solution_init(Domain.Nodes.size()) ;
  	GaussSeidel.solution_init(Domain.Nodes.size()) ;

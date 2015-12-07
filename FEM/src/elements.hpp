@@ -5,7 +5,6 @@
 #include "./eigen3/Eigen/Dense"
 
 using namespace Eigen ;
-using namespace std ;
 
 class Node {
     public:
@@ -32,10 +31,10 @@ class Node2d : public Node {
 
 class Line1d {
     public:
-        vector<Node1d*> nodes;
+        std::vector<Node1d*> nodes;
         
         Line1d(Node1d* n1, Node1d* n2) ;
-        void addNodes(int n, vector<Node1d>& nodes_g, vector<Node1d*>& nodes_e) ;
+        void addNodes(int n, std::vector<Node1d>& nodes_g, std::vector<Node1d*>& nodes_e) ;
 };
 
 class Element {
@@ -50,17 +49,17 @@ class Element {
 
 class Element1d : public Element {
     public:
-        Element1d(int ind_init, int order_init, int quad_init, vector<Node1d*> Nodes_init, vector<Line1d*> Edges_init);
-        vector<Node1d*> Nodes;
-        vector<Line1d*> Edges;
-        //MatrixXd k_local;
-        //VectorXd f_local;  
+        Element1d(int ind_init, int order_init, int quad_init, std::vector<Node1d*> Nodes_init, std::vector<Line1d*> Edges_init);
+        std::vector<Node1d*> Nodes;
+        std::vector<Line1d*> Edges;
+        std::function<double(double)> stiffness ;
+        std::function<double(double)> forcing ;
         virtual void quadrature(int n);
         double master_2_global( double xi ) ;
         void jacobian_calc() ;
-        void AbCalc(MatrixXd &A, VectorXd &b);
-        double shape(int n, double xi);
-        double dshape(int n, double xi);
+        void AbCalc(MatrixXd &A, VectorXd &b) ;
+        double shape(int n, double xi) ;
+        double dshape(int n, double xi) ;
 
 };
 

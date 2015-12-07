@@ -2,19 +2,8 @@
 #include "./eigen3/Eigen/Dense"
 #include "elements.hpp"
 #include <iostream>
-/*
-using namespace Eigen ;
-using namespace std ;
-class Node {
-    private:
-        Node(){ } 
-    public:
-        int n, df ;
-        bool boundary ;
-        double BC ;
-        Node ( int n_init, int df_init = 0, bool boundary_init = false, double BC_init = 0.0 );
-};
-*/
+#include <functional>
+
 
 Node::Node(int n_init, int df_init, bool boundary_init, double BC_init) {
     ind = n_init ;
@@ -41,7 +30,7 @@ Line1d::Line1d(Node1d* n1, Node1d* n2) {
             nodes.push_back(n2);
 }
 
-void Line1d::addNodes(int n, vector<Node1d> &nodes_g, vector<Node1d*> &nodes_e) {
+void Line1d::addNodes(int n, std::vector<Node1d> &nodes_g, std::vector<Node1d*> &nodes_e) {
      
      if (nodes.size() == (2+n)) {
      
@@ -60,7 +49,7 @@ void Line1d::addNodes(int n, vector<Node1d> &nodes_g, vector<Node1d*> &nodes_e) 
      }
 }
 
-Element1d::Element1d(int ind_init, int order_init, int quad_init, vector<Node1d*> Nodes_init, vector<Line1d*> Edges_init){
+Element1d::Element1d(int ind_init, int order_init, int quad_init, std::vector<Node1d*> Nodes_init, std::vector<Line1d*> Edges_init){
     ind = ind_init ;
     order = order_init ;
     quad_pts = quad_init ;
@@ -80,7 +69,7 @@ double Element1d::master_2_global( double xi ) {
 
 void Element1d::Element1d::quadrature(int n) {
     int ind = (quad_pts-1)*quad_pts/2 + n ;
-    vector<double> ws {2.0,1.0, 1.0,
+    std::vector<double> ws {2.0,1.0, 1.0,
                             0.8888888888888888888888889,
                             0.5555555555555555555555556,
                             0.5555555555555555555555556,
@@ -89,7 +78,7 @@ void Element1d::Element1d::quadrature(int n) {
                             0.3478548451374538573730639,
                             0.3478548451374538573730639} ;
     
-    vector<double> xis {0.0,
+    std::vector<double> xis {0.0,
                             0.5773502691896257645091488,
                             -0.5773502691896257645091488,
                             0.0,
@@ -174,8 +163,6 @@ double Element1d::dshape(int n, double xi) {
 void Element1d::AbCalc(MatrixXd &A, VectorXd &b) {
 
     int size = A.rows() ;
-    double stiffness = 1.0 ;
-    double force = 1.0 ;
     int i_g, j_g ;
 
     for(int i = 0 ; i < order+1 ; i++) {
@@ -185,15 +172,15 @@ void Element1d::AbCalc(MatrixXd &A, VectorXd &b) {
             j_g = Nodes[j]->ind ;
 
             for(int k=0; k < quad_pts; k++) {
-                quadrature(k);
-                A(i_g,j_g) += w*stiffness*dshape(i,xi)*dshape(j,xi)*jac_det ;
+                quadrature(k) ;
+                A(i_g,j_g) += w * stiffness(master_2_global(xi)) * dshape(i,xi) * dshape(j,xi) * jac_det ;
             }
 
         }
 
         for(int k=0; k < quad_pts; k++) {
                 quadrature(k);
-                b(i_g) += w*force*shape(i,xi)*jac_det ;
+                b(i_g) += w * forcing(master_2_global(xi)) * shape(i,xi) * jac_det ;
         }
 
     }
@@ -247,6 +234,8 @@ void Domain1d::build_elements() {
 
 void Domain1d::build_Ab(MatrixXd* A, VectorXd* b) {
     for(int i = 0; i < nx; i++) {
+        Elements[i].forcing = forcing ;
+        Elements[i].stiffness = stiffness ;
         Elements[i].AbCalc((*A), (*b)) ;
     }
 }

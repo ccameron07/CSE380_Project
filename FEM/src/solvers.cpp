@@ -4,10 +4,12 @@
 
 using namespace Eigen;
 
-Solver::Solver(int method_init, double tol_init, int max_iter_init) {
+Solver::Solver(int method_init, double tol_init, int max_iter_init, int report_interval_init, bool report_init) {
   method = method_init ;
   tol = tol_init ;
   max_iter = max_iter_init ;
+  report_interval = report_interval_init ;
+  report = report_init ;
 }
     
 void Solver::gaussSeidel(){
@@ -27,7 +29,14 @@ void Solver::gaussSeidel(){
            res = (x1-x).array().abs().sum();
            x1 = x;
            iter++;
-           std::cout << "Iteration: " << iter << "     Residual: " << res << "\n\n" ;
+
+           if( iter % report_interval == 0 & report ) {
+                       std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
+           }
+
+    if( report ) {
+      std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
+    }
 
     }
     if(res > tol) {
@@ -46,8 +55,8 @@ void Solver::jacobi(){
     MatrixXd D(n,n);
     
     D = A.diagonal().asDiagonal();
-    C = D.inverse()*b;
-    T = D.inverse()*(A-D);
+    C = D.inverse() * b;
+    T = D.inverse() * (A-D);
     
     iter = 0 ;
     res = 1 ;
@@ -56,8 +65,16 @@ void Solver::jacobi(){
            res = (x1-x).array().abs().sum();
            x1 = x;
            iter++;
-           std::cout << "Iteration: " << iter << "     Residual: " << res << "\n\n" ;
+
+           if( iter % report_interval == 0 & report ) {
+                       std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
+           } 
+
+         }
+    if( report ) {
+      std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
     }
+
     if(res > tol) {
       std::cout << "=========================================================="<<std::endl ;
       std::cout << " Warning Solution not converged before maximum iterations "<<std::endl ;

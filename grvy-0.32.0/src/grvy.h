@@ -60,7 +60,7 @@ extern "C" {
 #define GRVY_BUILD_USER     "Christopher"
 #define GRVY_BUILD_ARCH     "x86_64-apple-darwin15.0.0"
 #define GRVY_BUILD_HOST     "Christophers-MacBook-Pro.local"
-#define GRVY_BUILD_DATE     "2015-12-03 21:35"
+#define GRVY_BUILD_DATE     "2015-12-07 13:38"
 #define GRVY_BUILD_VERSION  "Unversioned directory"
 
 #define GRVY_LIB_VERSION    "0.32.0"

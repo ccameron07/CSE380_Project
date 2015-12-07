@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "elements.hpp"
+#include "solvers.hpp"
 #include "./eigen3/Eigen/Dense"
 #include <vector>
 
@@ -204,3 +205,38 @@ TEST_CASE( "Test Instantiate a Domain1d", "[Domain1d]") {
  	CHECK( (b-b1).norm() == Approx(0.0) ) ;
     
 }
+
+TEST_CASE( "Test Build Domain and Solve", "[Solver]") {
+	
+	int order_init = 1 ; 
+	int nx_init = 100 ; 
+	int quad_pts_init = 3 ; 
+	double Xmin_init = 0.0 ; 
+	double Xmax_init = 3.0 ; 
+	double dirichlet_init = 0.0 ;
+	int method_init = 0 ;
+	double tol_init = 1e-11 ;
+	int max_iter_init = 10000 ;
+
+	Domain1d Domain(order_init, nx_init, quad_pts_init, Xmin_init, Xmax_init, dirichlet_init ) ;
+	Domain.build_elements( ) ;
+
+	Solver Jacobi(method_init, tol_init, max_iter_init) ;
+	Solver GaussSeidel(1, tol_init, max_iter_init) ;
+
+ 	Jacobi.solution_init(Domain.Nodes.size()) ;
+ 	GaussSeidel.solution_init(Domain.Nodes.size()) ;
+
+	Domain.build_Ab(&Jacobi.A, &Jacobi.b);
+	Domain.add_constraints(Jacobi.A, Jacobi.b);
+
+	GaussSeidel.A = Jacobi.A ;
+	GaussSeidel.b = Jacobi.b ;
+
+ 	Jacobi.solve() ;
+ 	GaussSeidel.solve() ;
+
+ 	std::cout << "Jacobi Solution with " << Jacobi.iter << " iterations:\n" << Jacobi.x << std::endl ;
+ 	std::cout << "Gauss Seidel Solution with " << GaussSeidel.iter << " iterations:\n" << GaussSeidel.x << std::endl ;
+
+ }

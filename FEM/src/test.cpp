@@ -137,7 +137,7 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
     MatrixXd A = MatrixXd::Zero(3,3) ;
     VectorXd b = VectorXd::Zero(3) ;
 
-    E.kfCalc(A, b);
+    E.AbCalc(A, b);
     MatrixXd A_e(3,3);
     VectorXd b_e(3);
     A_e << 1,-1,0,-1,1,0,0,0,0;
@@ -145,6 +145,62 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
 
     CHECK( (A-A_e).sum() == Approx(0.0) );
     CHECK( (b-b_e).sum() == Approx(0.0) );
-    E1.kfCalc(A, b);
+    E1.AbCalc(A, b);
 
+}
+
+TEST_CASE( "Test Instantiate a Domain1d", "[Domain1d]") {
+	
+	int order_init = 1 ; 
+	int nx_init = 3 ; 
+	int quad_pts_init = 3 ; 
+	double Xmin_init = 0.0 ; 
+	double Xmax_init = 3.0 ; 
+	double dirichlet_init = 0.0 ;
+
+	Domain1d Domain(order_init, nx_init, quad_pts_init, Xmin_init, Xmax_init, dirichlet_init ) ;
+
+	CHECK( Domain.Elements.capacity() == 3 ) ;
+    CHECK( Domain.Nodes.capacity() == 4 ) ;
+    CHECK( Domain.Edges.capacity() == 3 ) ;
+	CHECK( Domain.Elements.size() == 0 ) ;
+    CHECK( Domain.Nodes.size() == 0 ) ;
+    CHECK( Domain.Edges.size() == 0 ) ;
+
+    Domain.build_elements( ) ;
+    CHECK( Domain.Elements.size() == 3 ) ;
+    CHECK( Domain.Nodes.size() == 4 ) ;
+    CHECK( Domain.Edges.size() == 3 ) ;
+
+    MatrixXd A = MatrixXd::Zero(Domain.Nodes.size(), Domain.Nodes.size()) ;
+    VectorXd b = VectorXd::Zero(Domain.Nodes.size()) ;
+
+    Domain.build_Ab(&A, &b) ;
+
+    MatrixXd A0(4,4) ;
+    		 A0 << 1, -1,  0,  0,
+	              -1,  2, -1,  0,
+	               0, -1,  2, -1,
+ 	               0,  0, -1,  1;
+
+	VectorXd b0(4) ;
+			 b0 << 0.5, 1, 1, 0.5;
+
+	CHECK( (A-A0).norm() == Approx(0.0) ) ;
+    CHECK( (b-b0).norm() == Approx(0.0) ) ;
+
+    Domain.add_constraints(A, b) ;
+
+    MatrixXd A1(4,4) ;
+    		 A1 << 1,  0,  0,  0,
+	               0,  2, -1,  0,
+	               0, -1,  2,  0,
+ 	               0,  0,  0,  1;
+
+ 	VectorXd b1(4) ;
+ 			 b1 << 0, 1, 1, 0 ;
+
+ 	CHECK( (A-A1).norm() == Approx(0.0) ) ;
+ 	CHECK( (b-b1).norm() == Approx(0.0) ) ;
+    
 }

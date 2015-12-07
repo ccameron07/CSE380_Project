@@ -8,9 +8,8 @@ using namespace Eigen ;
 using namespace std ;
 
 class Node {
-    private:
-        Node(){ } 
     public:
+        Node(){ } 
         int ind, df ;
         bool boundary ;
         double BC ;
@@ -59,7 +58,7 @@ class Element1d : public Element {
         virtual void quadrature(int n);
         double master_2_global( double xi ) ;
         void jacobian_calc() ;
-        void kfCalc(MatrixXd &A, VectorXd &b);
+        void AbCalc(MatrixXd &A, VectorXd &b);
         double shape(int n, double xi);
         double dshape(int n, double xi);
 
@@ -74,11 +73,12 @@ class Domain1d {
         double Xmin, Xmax, dirichlet;
         std::function<double(double)> stiffness ;
         std::function<double(double)> forcing ;
-        vector<Element1d> Elements ;
-        vector<Line1d> Edges ;
-        vector<Node1d> Nodes ;
+        std::vector<Element1d> Elements ;
+        std::vector<Line1d> Edges ;
+        std::vector<Node1d> Nodes ;
         void build_elements() ;
-        void add_constraints() ;
+        void build_Ab(MatrixXd* A, VectorXd* b) ;
+        void add_constraints(MatrixXd& A, VectorXd& b) ;
 } ;
 
 #endif

@@ -171,7 +171,7 @@ double Element1d::dshape(int n, double xi) {
     }
 }
 
-void Element1d::kfCalc(MatrixXd &A, VectorXd &b) {
+void Element1d::AbCalc(MatrixXd &A, VectorXd &b) {
 
     int size = A.rows() ;
     double stiffness = 1.0 ;
@@ -222,24 +222,45 @@ void Domain1d::build_elements() {
         n = Nodes.size();
         if (i == 0) {
             x = Xmin ;
-            Nodes.push_back(Node1d(n, x, 0, 1, dirichlet)) ;
+            Nodes.emplace_back(Node1d(n, x, 0, 1, dirichlet)) ;
             n++ ;
         }
         x += dx ; 
         if (i == nx-1) {
-            Nodes.push_back(Node1d(n, x, 0, 1, dirichlet)) ;
+            Nodes.emplace_back(Node1d(n, x, 0, 1, dirichlet)) ;
         } else {
-            Nodes.push_back(Node1d(n, x)) ;
+            Nodes.emplace_back(Node1d(n, x)) ;
         }
         last_two_nodes.clear() ;
-        last_two_nodes.push_back( &Nodes[n-1] ) ;
-        last_two_nodes.push_back( &Nodes[n] ) ;
+        last_two_nodes.emplace_back( &Nodes[n-1] ) ;
+        last_two_nodes.emplace_back( &Nodes[n] ) ;
 
-        Edges.push_back( Line1d(last_two_nodes[0] , last_two_nodes[1])) ;
+        Edges.emplace_back( Line1d(last_two_nodes[0] , last_two_nodes[1])) ;
 
         last_edge.clear() ;
-        last_edge.push_back( &Edges[i] ) ;
+        last_edge.emplace_back( &Edges[i] ) ;
 
-        Elements.push_back( Element1d(i, order, quad_pts, last_two_nodes, last_edge)) ;
+        Elements.emplace_back( Element1d(i, order, quad_pts, last_two_nodes, last_edge)) ;
+    }
+}
+
+
+void Domain1d::build_Ab(MatrixXd* A, VectorXd* b) {
+    for(int i = 0; i < nx; i++) {
+        Elements[i].AbCalc((*A), (*b)) ;
+    }
+}
+
+void Domain1d::add_constraints(MatrixXd& A, VectorXd& b) {
+    int n_nodes = Nodes.size() ;
+    int ind ;
+    for(int i = 0; i < n_nodes; i++){
+        if( Nodes[i].boundary == 1){
+            b -= A.col(Nodes[i].ind)*Nodes[i].BC ;
+            b(Nodes[i].ind) = Nodes[i].BC ;
+            A.col(Nodes[i].ind) = VectorXd::Zero(n_nodes) ;
+            A.row(Nodes[i].ind) = VectorXd::Zero(n_nodes) ;
+            A(Nodes[i].ind, Nodes[i].ind) = 1.0 ;
+        }
     }
 }

@@ -1,6 +1,7 @@
 #ifndef ELEMENTS_H
 #define ELEMENTS_H
 #include <vector>
+#include <functional>
 #include "./eigen3/Eigen/Dense"
 
 using namespace Eigen ;
@@ -63,5 +64,21 @@ class Element1d : public Element {
         double dshape(int n, double xi);
 
 };
+
+class Domain1d {
+    private:
+        Domain1d() { }
+    public:
+        Domain1d(int order_init, int nx_init, int quad_pts_init, double Xmin_init, double Xmax_init, double dirichlet_init) ;
+        int order, nx, quad_pts;
+        double Xmin, Xmax, dirichlet;
+        std::function<double(double)> stiffness ;
+        std::function<double(double)> forcing ;
+        vector<Element1d> Elements ;
+        vector<Line1d> Edges ;
+        vector<Node1d> Nodes ;
+        void build_elements() ;
+        void add_constraints() ;
+} ;
 
 #endif

@@ -95,12 +95,12 @@ TEST_CASE( "Test addNodes method of Line", "[Line]") {
 TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
     Node1d n0(0, 0.0) ;
     Node1d n1(1, 1.0) ;
-    Node1d n2(2, 0.2) ;
+    Node1d n2(2, 2.0) ;
     
     std::vector<Node1d*> nodes_g ;
     nodes_g.push_back(&n0);
+    nodes_g.push_back(&n1);
     nodes_g.push_back(&n2);
-//    nodes_g.push_back(&n2);
     
     Line1d L0(&n0, &n1) ;
     Line1d L1(&n1, &n2) ;
@@ -108,10 +108,16 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
 
     std::vector<Line1d*> lines_g ;
     lines_g.push_back(&L0);
-  //  lines_g.push_back(&L1);
-  //  lines_g.push_back(&L2);
+    lines_g.push_back(&L1);
+    lines_g.push_back(&L2);
  
-    Element1d E(0, 1, 2, nodes_g, lines_g) ;  
+ 	std::vector<Node1d*> nodes_e(&nodes_g[0],&nodes_g[2]) ;
+ 	std::vector<Line1d*> lines_e(&lines_g[0],&lines_g[1]) ;
+    Element1d E(0, 1, 3, nodes_e, lines_e) ;  
+
+    nodes_e.assign(&nodes_g[1],&nodes_g[3]) ;
+ 	lines_e.assign(&lines_g[1],&lines_g[2]) ;
+    Element1d E1(1, 1, 3, nodes_e, lines_e) ; 
 
     CHECK( E.jac_det == 0.5 ) ;
     CHECK( E.Edges.size() == 1 ) ;
@@ -132,5 +138,13 @@ TEST_CASE( "Test Instantiate an Element1d", "[Element1d]") {
     VectorXd b = VectorXd::Zero(3) ;
 
     E.kfCalc(A, b);
-    std::cout << A << std::endl << b << std::endl ;
+    MatrixXd A_e(3,3);
+    VectorXd b_e(3);
+    A_e << 1,-1,0,-1,1,0,0,0,0;
+    b_e << 0.5,0.5,0;
+
+    CHECK( (A-A_e).sum() == Approx(0.0) );
+    CHECK( (b-b_e).sum() == Approx(0.0) );
+    E1.kfCalc(A, b);
+
 }

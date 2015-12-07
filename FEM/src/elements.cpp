@@ -186,17 +186,60 @@ void Element1d::kfCalc(MatrixXd &A, VectorXd &b) {
 
             for(int k=0; k < quad_pts; k++) {
                 quadrature(k);
-                A(i_g,j_g) += w*stiffness*dshape(i,xi)*dshape(j,xi) ;
+                A(i_g,j_g) += w*stiffness*dshape(i,xi)*dshape(j,xi)*jac_det ;
             }
 
-            A(i_g,j_g) *= jac_det ;
         }
 
         for(int k=0; k < quad_pts; k++) {
                 quadrature(k);
-                b(i_g) += w*force*shape(i,xi) ;
+                b(i_g) += w*force*shape(i,xi)*jac_det ;
         }
 
-        b(i_g) *= jac_det ;
+    }
+}
+
+Domain1d::Domain1d(int order_init, int nx_init, int quad_pts_init, double Xmin_init, double Xmax_init, double dirichlet_init) {
+    order = order_init ;
+    nx = nx_init ;
+    quad_pts = quad_pts_init ;
+    Xmin = Xmin_init ;
+    Xmax = Xmax_init ;
+    dirichlet = dirichlet_init ;
+    Elements.reserve(nx) ;
+    Nodes.reserve(order*nx+1) ;
+    Edges.reserve(nx) ;
+}
+
+void Domain1d::build_elements() {
+    int n ;
+    double x ;
+    double dx = (Xmax-Xmin)/nx ;
+    std::vector<Node1d*> last_two_nodes ;
+    std::vector<Line1d*> last_edge ;
+
+    for(int i = 0 ; i < nx; i++) {
+        n = Nodes.size();
+        if (i == 0) {
+            x = Xmin ;
+            Nodes.push_back(Node1d(n, x, 0, 1, dirichlet)) ;
+            n++ ;
+        }
+        x += dx ; 
+        if (i == nx-1) {
+            Nodes.push_back(Node1d(n, x, 0, 1, dirichlet)) ;
+        } else {
+            Nodes.push_back(Node1d(n, x)) ;
+        }
+        last_two_nodes.clear() ;
+        last_two_nodes.push_back( &Nodes[n-1] ) ;
+        last_two_nodes.push_back( &Nodes[n] ) ;
+
+        Edges.push_back( Line1d(last_two_nodes[0] , last_two_nodes[1])) ;
+
+        last_edge.clear() ;
+        last_edge.push_back( &Edges[i] ) ;
+
+        Elements.push_back( Element1d(i, order, quad_pts, last_two_nodes, last_edge)) ;
     }
 }

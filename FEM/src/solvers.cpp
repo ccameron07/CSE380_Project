@@ -26,19 +26,19 @@ void Solver::gaussSeidel(){
     res = 1 ;
     while(res > tol && iter < max_iter){
            x = -T*(x) + C ;
-           res = (x1-x).array().abs().sum();
+           res = (x1-x).norm();
            x1 = x;
            iter++;
 
            if( iter % report_interval == 0 & report ) {
                        std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
            }
+    }
 
     if( report ) {
       std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
     }
 
-    }
     if(res > tol) {
       std::cout << "=========================================================="<<std::endl ;
       std::cout << " Warning Solution not converged before maximum iterations "<<std::endl ;
@@ -62,7 +62,7 @@ void Solver::jacobi(){
     res = 1 ;
     while(res > tol && iter < max_iter){
            x = -T*(x) + C ;
-           res = (x1-x).array().abs().sum();
+           res = (x1-x).norm();
            x1 = x;
            iter++;
 

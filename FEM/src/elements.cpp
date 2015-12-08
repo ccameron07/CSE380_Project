@@ -1,6 +1,6 @@
-#include <vector>
-#include "./eigen3/Eigen/Dense"
 #include "elements.hpp"
+#include "./eigen3/Eigen/Dense"
+#include <vector>
 #include <iostream>
 #include <functional>
 
@@ -164,6 +164,7 @@ void Element1d::AbCalc(MatrixXd &A, VectorXd &b) {
 
     int size = A.rows() ;
     int i_g, j_g ;
+    double f ;
 
     for(int i = 0 ; i < order+1 ; i++) {
         i_g = Nodes[i]->ind ;

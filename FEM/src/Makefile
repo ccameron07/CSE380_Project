@@ -4,10 +4,10 @@ OBJ  :=   $(patsubst %.cpp,%.o,$(SRC))
 # Options
 INCL     := -I$(TACC_GRVY_INC) -I$(TACC_MASA_INC) -I$(HOME)/CSE380/CSE380_Project/FEM/include
 CXX      := g++
-CXXFLAGS := -O3 -std=c++11 $(INCL)
+CXXFLAGS := -O0 -std=c++11 $(INCL)
 LINK.o   := $(LINK.cc)
 LDFLAGS  := 
-LDLIBS   := -L$(TACC_GRV_LIB) -lgrvy -L$(TACC_MASA_LIB) -lmasa 
+LDLIBS   := -L$(TACC_GRVY_LIB) -lgrvy -L$(TACC_MASA_LIB) -lmasa 
 # Rules
 $(EXEC): $(OBJ)
 	$(LINK.o) $(LDLIBS) -o $@ $^

@@ -1,8 +1,10 @@
 #include "./eigen3/Eigen/Dense"
 #include <iostream>
 #include "solvers.hpp"
+#include <grvy.h>
 
 using namespace Eigen;
+using namespace GRVY;
 
 Solver::Solver(int method_init, double tol_init, int max_iter_init, int report_interval_init, bool report_init) {
   method = method_init ;

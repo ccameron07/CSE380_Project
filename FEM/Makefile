@@ -1,39 +1,37 @@
-CC := icpc # This is the main compiler
- # CC := clang --analyze # and comment out the linker last line for sanity
-SRCDIR := src
-BUILDDIR := build
-TARGET := bin/a.out
+SRCDIR := src/
+OBJDIR := build/
+BINDIR := bin/
+EXEC   := main
+SRCS :=   main.cpp elements.cpp solvers.cpp masa_helper.cpp
 
-SRCEXT := cpp
-SOURCES := $(wildcard $(SRCDIR)/*.$(SRCEXT))
-OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g # -Wall
-LIB := 
-INC := -I include/
+SRC  :=   $(addprefix $(SRCDIR), $(SRCS))
+OBJ  :=   $(addprefix $(OBJDIR),$(patsubst %.cpp,%.o,$(SRCS))) 
+# Options
+INCL     := -I$(TACC_GRVY_INC) -I$(TACC_MASA_INC) -I$(HOME)/CSE380/CSE380_Project/FEM/include
+CXX      := g++
+CXXFLAGS := -O0 -std=c++11 $(INCL)
+LINK.o   := $(LINK.cc)
+LDFLAGS  := 
+LDLIBS   := -L$(TACC_GRV_LIB) -lgrvy -L$(TACC_MASA_LIB) -lmasa
 
-all:
-$(TARGET): $(OBJECTS)
-	@echo $(SOURCES)
-	  @echo " Linking..."
-	    @echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
+# Rules
 
-$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
-	  @mkdir -p $(BUILDDIR)
-	    @echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
+$(BINDIR)$(EXEC): $(OBJ)
+	$(LINK.o) $(LDLIBS) $(OBJ) -o $@
 
-# Tests
-tests: 	
-	$(CC) $(CFLAGS) test/eigentest.cpp $(INC) $(LIB) -o bin/tester
+#$(OBJ) : $(SRC)
+$(OBJ) : $(OBJDIR)%.o : $(SRCDIR)%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Spikes
-ticket:
-	  $(CC) $(CFLAGS) spikes/ticket.cpp $(INC) $(LIB) -o bin/ticket
-
-.PHONY: clean, list
-clean:
-	  @echo " Cleaning..."; 
-	    @echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
-
-list:
-	@echo " $(SOURCES) ";
-
+# Useful phony targets
+.PHONY: clobber clean neat echo
+clobber: clean
+	$(RM) $(EXEC)
+clean: neat
+	$(RM) $(OBJ)
+neat:
+	$(RM) *~ .*~
+echo:
+	@echo $(SRC)
+	@echo $(OBJ)
+	@echo $(OBJ) : $(OBJDIR)/%.o : $(SRCDIR)/%.c

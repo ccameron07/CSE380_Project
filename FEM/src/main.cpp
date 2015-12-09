@@ -13,7 +13,7 @@ using namespace MASA ;
 int main() {
 
 	int order_init = 2 ; 
-	int nx_init = 256; 
+	int nx_init = 512; 
 	int quad_pts_init = 4 ; 
 	double Xmin_init = 0 ; 
 	double Xmax_init = 4 ; 
@@ -24,6 +24,7 @@ int main() {
     int report_interval = 1000 ;
     bool report = true ;
     bool with_masa = true ;
+    std::string file_out = "masa_validate_2nd_sparse1_512.txt";
     std::function<double(double)> stiffness ;
     std::function<double(double)> forcing ;
     
@@ -56,13 +57,12 @@ int main() {
  	GaussSeidel.solve() ;
     VectorXd exact = mfg.exact_solution(Domain.Nodes) ;
    
-    std::cout << (exact-GaussSeidel.x).norm() << std::endl ;
-
     std::ofstream f ;
-    f.open("masa_validate_2nd_sparse_256.txt");
+    f.open(file_out);
+    f.precision(16) ;
     f << "x,exact,approx" << std::endl ;
     for(int i = 0; i < Domain.Nodes.size(); i++){
-        f << Domain.Nodes[i].coords << "," << exact(i) << ',' << GaussSeidel.x(i) << std::endl ;
+        f <<  Domain.Nodes[i].coords << "," << exact(i) << ',' << GaussSeidel.x(i) << std::endl ;
     }
     f.close();
 }

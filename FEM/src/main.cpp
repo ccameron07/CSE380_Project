@@ -13,7 +13,7 @@ using namespace MASA ;
 int main() {
 
 	int order_init = 2 ; 
-	int nx_init = 512; 
+	int nx_init = 4096; 
 	int quad_pts_init = 4 ; 
 	double Xmin_init = 0 ; 
 	double Xmax_init = 4 ; 
@@ -24,7 +24,7 @@ int main() {
     int report_interval = 1000 ;
     bool report = true ;
     bool with_masa = true ;
-    std::string file_out = "masa_validate_2nd_sparse1_512.txt";
+    std::string file_out = "masa_validate_2nd_sparse_4096.txt";
     std::function<double(double)> stiffness ;
     std::function<double(double)> forcing ;
     

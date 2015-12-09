@@ -1,4 +1,5 @@
 #include "./eigen3/Eigen/Dense"
+#include "./eigen3/Eigen/Sparse"
 #include <iostream>
 #include "solvers.hpp"
 
@@ -11,21 +12,27 @@ Solver::Solver(int method_init, double tol_init, int max_iter_init, int report_i
   report_interval = report_interval_init ;
   report = report_init ;
 }
-    
+
+void Solver::Householder(){
+
+    x = A.colPivHouseholderQr().solve(b) ;
+}
+
 void Solver::gaussSeidel(){
 
     VectorXd x1 = VectorXd::Zero(n) ;
     VectorXd C(n) ;
     MatrixXd T(n,n);
-    
+    SparseMatrix<double> Ts;
+
     C = A.triangularView<Lower>().solve(b);
     T = A.triangularView<StrictlyUpper>();
     T = A.triangularView<Lower>().solve(T);
-    
+    Ts = T.sparseView(); 
     iter = 0 ;
     res = 1 ;
     while(res > tol && iter < max_iter){
-           x = -T*(x) + C ;
+           x = -Ts*(x) + C ;
            res = (x1-x).norm();
            x1 = x;
            iter++;
@@ -95,8 +102,11 @@ void Solver::solve() {
     case 0:
       jacobi() ;
       break;
-  case 1:
+    case 1:
       gaussSeidel() ;
-  break;
+      break;
+    case 2:
+      Householder() ;
+      break;
   }
 }

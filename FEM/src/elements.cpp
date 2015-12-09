@@ -1,9 +1,11 @@
 #include "elements.hpp"
 #include "./eigen3/Eigen/Dense"
+#include <masa.h>
 #include <vector>
 #include <iostream>
 #include <functional>
 
+using namespace MASA;
 
 Node::Node(int n_init, int df_init, bool boundary_init, double BC_init) {
     ind = n_init ;
@@ -42,7 +44,7 @@ void Line1d::addNodes(int n, std::vector<Node1d> &nodes_g, std::vector<Node1d*> 
          int n_nodes = nodes_g.size() ;
          
          for(int i = 0; i < n; i++){
-             nodes_g.push_back(Node1d(n_nodes+i, 0, (*nodes[0]).boundary, (*nodes[0]).BC)) ;
+             nodes_g.push_back(Node1d(n_nodes+i, 0, 0, 0)) ;
              nodes_e.push_back(&nodes_g[n_nodes]) ;
              nodes.push_back(&nodes_g[n_nodes]) ;
          }
@@ -65,6 +67,11 @@ void Element1d::jacobian_calc(){
 double Element1d::master_2_global( double xi ) {
     double x = Nodes[0]->coords + (1.0 + xi)*jac_det ;
     return x ;
+}
+
+void Element1d::addNodes(int n, std::vector<Node1d> &nodes_g){
+    Edges[0]->addNodes(n, nodes_g, Nodes) ;
+    nodes_g.back().coords = master_2_global(0.0) ;
 }
 
 void Element1d::Element1d::quadrature(int n) {
@@ -115,11 +122,11 @@ double Element1d::shape(int n, double xi) {
                     return psi ;
                     break ;
                 case 1:
-                    psi = (1.0-xi*xi);
+                    psi = 0.5*xi*(xi+1.0);
                     return psi ;
                     break ;
                 case 2:
-                    psi = 0.5*xi*(xi+1.0);
+                    psi = (1.0-xi*xi);
                     return psi ;
                     break ;           
             }
@@ -149,11 +156,11 @@ double Element1d::dshape(int n, double xi) {
                     return dpsi/jac_det ;
                     break ;
                 case 1:
-                    dpsi = 1.0-2.0*xi;
+                    dpsi = xi+0.5;
                     return dpsi/jac_det ;
                     break ;
                 case 2:
-                    dpsi = xi+0.5;
+                    dpsi = -2.0*xi;
                     return dpsi/jac_det ;
                     break ;           
             }
@@ -210,12 +217,20 @@ void Domain1d::build_elements() {
         n = Nodes.size();
         if (i == 0) {
             x = Xmin ;
-            Nodes.emplace_back(Node1d(n, x, 0, 1, dirichlet)) ;
+            if(with_masa) {
+                Nodes.emplace_back( Node1d( n, x, 0, 1, masa_eval_exact_t(x) ) ) ;
+            } else {
+                Nodes.emplace_back( Node1d( n, x, 0, 1, dirichlet ) );
+            }
             n++ ;
         }
         x += dx ; 
         if (i == nx-1) {
-            Nodes.emplace_back(Node1d(n, x, 0, 1, dirichlet)) ;
+            if(with_masa) {
+                Nodes.emplace_back( Node1d( n, x, 0, 1, masa_eval_exact_t(x) ) ) ;
+            } else {
+                Nodes.emplace_back( Node1d( n, x, 0, 1, dirichlet ) );
+            }
         } else {
             Nodes.emplace_back(Node1d(n, x)) ;
         }
@@ -229,15 +244,23 @@ void Domain1d::build_elements() {
         last_edge.emplace_back( &Edges[i] ) ;
 
         Elements.emplace_back( Element1d(i, order, quad_pts, last_two_nodes, last_edge)) ;
+
     }
 }
 
+void Domain1d::addNodes(int n) {
+    for(int i = 0; i < nx; i++) {
+            Elements[i].addNodes(n,Nodes);
+        }
+}
 
 void Domain1d::build_Ab(MatrixXd* A, VectorXd* b) {
     for(int i = 0; i < nx; i++) {
         Elements[i].forcing = forcing ;
         Elements[i].stiffness = stiffness ;
         Elements[i].AbCalc((*A), (*b)) ;
+//        std::cout << (*A) << std::endl ;
+//        std::cout << (*b) << std::endl ;
     }
 }
 
@@ -253,4 +276,6 @@ void Domain1d::add_constraints(MatrixXd& A, VectorXd& b) {
             A(Nodes[i].ind, Nodes[i].ind) = 1.0 ;
         }
     }
+//    std::cout << (A) << std::endl ;
+//    std::cout << (b) << std::endl ;
 }

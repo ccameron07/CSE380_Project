@@ -23,6 +23,7 @@ public:
 	void solve() ;
 	void jacobi() ;
 	void gaussSeidel() ;
+    void Householder() ;
  
 } ;
 

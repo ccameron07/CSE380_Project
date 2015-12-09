@@ -18,6 +18,21 @@ void Solver::Householder(){
     x = A.colPivHouseholderQr().solve(b) ;
 }
 
+void Solver::CG(){
+    ConjugateGradient<SparseMatrix<double>> CG;
+
+    CG.compute(A.sparseView());
+    if(CG.info()!=Success) {
+        std::cout << "decomposition failed" << std::endl ;
+        return;
+     }
+     x = CG.solve(b);
+     if(CG.info()!=Success) {
+        std::cout << "solving failed" << std::endl ;
+      return;
+     }
+}
+
 void Solver::gaussSeidel(){
 
     VectorXd x1 = VectorXd::Zero(n) ;
@@ -106,6 +121,9 @@ void Solver::solve() {
       gaussSeidel() ;
       break;
     case 2:
+      Householder() ;
+      break;
+    case 3:
       Householder() ;
       break;
   }

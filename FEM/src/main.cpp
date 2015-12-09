@@ -18,7 +18,7 @@ int main() {
 	double Xmin_init = 0 ; 
 	double Xmax_init = 4 ; 
 	double dirichlet_init = 0.0 ;
-	int method_init = 2 ;
+	int method_init = 3 ;
 	double tol_init = 1e-14 ;
 	int max_iter_init = 1000000 ;
     int report_interval = 1000 ;
@@ -59,7 +59,7 @@ int main() {
     std::cout << (exact-GaussSeidel.x).norm() << std::endl ;
 
     std::ofstream f ;
-    f.open("masa_validate_2nd_256.txt");
+    f.open("masa_validate_2nd_sparse_256.txt");
     f << "x,exact,approx" << std::endl ;
     for(int i = 0; i < Domain.Nodes.size(); i++){
         f << Domain.Nodes[i].coords << "," << exact(i) << ',' << GaussSeidel.x(i) << std::endl ;

@@ -24,6 +24,7 @@ public:
 	void jacobi() ;
 	void gaussSeidel() ;
     void Householder() ;
+    void CG() ;
  
 } ;
 

@@ -1,0 +1,1063 @@
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 1000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 1.27087e-05
+Iteration: 20000     Residual: 1.02546e-07
+Iteration: 30000     Residual: 8.27432e-10
+Iteration: 40000     Residual: 6.67647e-12
+Iteration: 50000     Residual: 5.37717e-14
+Iteration: 58188     Residual: 9.93068e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 1.63665e+01 secs ( 99.9116 %) | [1.63665e+01  0.00000e+00          1]
+--> Initialization      : 7.51019e-03 secs (  0.0458 %) | [7.51019e-03  0.00000e+00          1]
+--> Main Program        : 4.53424e-03 secs (  0.0277 %) | [4.53424e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.19893e-03 secs (  0.0134 %) | [2.19893e-03  0.00000e+00          1]
+--> Build Elements      : 2.26021e-04 secs (  0.0014 %) | [2.26021e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 9.53674e-06 secs (  0.0001 %)
+
+    Total Measured Time = 1.63810e+01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 1000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 1.27087e-05
+Iteration: 20000     Residual: 1.02546e-07
+Iteration: 30000     Residual: 8.27432e-10
+Iteration: 40000     Residual: 6.67647e-12
+Iteration: 50000     Residual: 5.37717e-14
+Iteration: 58188     Residual: 9.93068e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 1.62481e+01 secs ( 99.9351 %) | [1.62481e+01  0.00000e+00          1]
+--> Initialization      : 4.28081e-03 secs (  0.0263 %) | [4.28081e-03  0.00000e+00          1]
+--> Main Program        : 3.87478e-03 secs (  0.0238 %) | [3.87478e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.17104e-03 secs (  0.0134 %) | [2.17104e-03  0.00000e+00          1]
+--> Build Elements      : 2.09093e-04 secs (  0.0013 %) | [2.09093e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 1.74046e-05 secs (  0.0001 %)
+
+    Total Measured Time = 1.62587e+01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 1000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 1.27087e-05
+Iteration: 20000     Residual: 1.02546e-07
+Iteration: 30000     Residual: 8.27432e-10
+Iteration: 40000     Residual: 6.67647e-12
+Iteration: 50000     Residual: 5.37717e-14
+Iteration: 58188     Residual: 9.93068e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 7.15763e-01 secs ( 98.7382 %) | [7.15763e-01  0.00000e+00          1]
+--> Initialization      : 4.27508e-03 secs (  0.5897 %) | [4.27508e-03  0.00000e+00          1]
+--> Main Program        : 4.24480e-03 secs (  0.5856 %) | [4.24480e-03  0.00000e+00          1]
+--> Assemble Equations  : 5.34058e-04 secs (  0.0737 %) | [5.34058e-04  0.00000e+00          1]
+--> Build Elements      : 8.60691e-05 secs (  0.0119 %) | [8.60691e-05  0.00000e+00          1]
+--> GRVY_Unassigned     : 6.67572e-06 secs (  0.0009 %)
+
+    Total Measured Time = 7.24910e-01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 1000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 1.27087e-05
+Iteration: 20000     Residual: 1.02546e-07
+Iteration: 30000     Residual: 8.27432e-10
+Iteration: 40000     Residual: 6.67647e-12
+Iteration: 50000     Residual: 5.37717e-14
+Iteration: 58188     Residual: 9.93068e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 6.48525e-01 secs ( 94.7136 %) | [6.48525e-01  0.00000e+00          1]
+--> Main Program        : 3.09629e-02 secs (  4.5220 %) | [3.09629e-02  0.00000e+00          1]
+--> Initialization      : 4.62794e-03 secs (  0.6759 %) | [4.62794e-03  0.00000e+00          1]
+--> Assemble Equations  : 4.99010e-04 secs (  0.0729 %) | [4.99010e-04  0.00000e+00          1]
+--> Build Elements      : 9.89437e-05 secs (  0.0145 %) | [9.89437e-05  0.00000e+00          1]
+--> GRVY_Unassigned     : 8.34465e-06 secs (  0.0012 %)
+
+    Total Measured Time = 6.84722e-01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 1000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 1.27087e-05
+Iteration: 20000     Residual: 1.02546e-07
+Iteration: 30000     Residual: 8.27432e-10
+Iteration: 40000     Residual: 6.67647e-12
+Iteration: 50000     Residual: 5.37717e-14
+Iteration: 58188     Residual: 9.93068e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 6.48324e-01 secs ( 98.6933 %) | [6.48324e-01  0.00000e+00          1]
+--> Initialization      : 4.15683e-03 secs (  0.6328 %) | [4.15683e-03  0.00000e+00          1]
+--> Main Program        : 3.86405e-03 secs (  0.5882 %) | [3.86405e-03  0.00000e+00          1]
+--> Assemble Equations  : 4.44889e-04 secs (  0.0677 %) | [4.44889e-04  0.00000e+00          1]
+--> Build Elements      : 1.10865e-04 secs (  0.0169 %) | [1.10865e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 7.39098e-06 secs (  0.0011 %)
+
+    Total Measured Time = 6.56908e-01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 128
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 1000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 0.000171922
+Iteration: 20000     Residual: 5.02488e-05
+Iteration: 30000     Residual: 1.50613e-05
+Iteration: 40000     Residual: 4.51456e-06
+Iteration: 50000     Residual: 1.35322e-06
+Iteration: 60000     Residual: 4.0562e-07
+Iteration: 70000     Residual: 1.21583e-07
+Iteration: 80000     Residual: 3.64438e-08
+Iteration: 90000     Residual: 1.09239e-08
+Iteration: 100000     Residual: 3.27437e-09
+Iteration: 110000     Residual: 9.81477e-10
+Iteration: 120000     Residual: 2.94193e-10
+Iteration: 130000     Residual: 8.81829e-11
+Iteration: 140000     Residual: 2.64323e-11
+Iteration: 150000     Residual: 7.92293e-12
+Iteration: 160000     Residual: 2.37483e-12
+Iteration: 170000     Residual: 7.11868e-13
+Iteration: 180000     Residual: 2.13193e-13
+Iteration: 190000     Residual: 6.39339e-14
+Iteration: 200000     Residual: 1.91341e-14
+Iteration: 210000     Residual: 5.83304e-15
+Iteration: 220000     Residual: 1.94e-15
+Iteration: 223182     Residual: 9.95586e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 9.46236e+00 secs ( 99.8540 %) | [9.46236e+00  0.00000e+00          1]
+--> Main Program        : 6.37221e-03 secs (  0.0672 %) | [6.37221e-03  0.00000e+00          1]
+--> Initialization      : 6.35219e-03 secs (  0.0670 %) | [6.35219e-03  0.00000e+00          1]
+--> Assemble Equations  : 9.61065e-04 secs (  0.0101 %) | [9.61065e-04  0.00000e+00          1]
+--> Build Elements      : 1.44005e-04 secs (  0.0015 %) | [1.44005e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 5.48363e-06 secs (  0.0001 %)
+
+    Total Measured Time = 9.47620e+00 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 256
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 0.000518789
+Iteration: 20000     Residual: 0.000184105
+Iteration: 30000     Residual: 9.18547e-05
+Iteration: 40000     Residual: 6.08997e-05
+Iteration: 50000     Residual: 4.41403e-05
+Iteration: 60000     Residual: 3.25464e-05
+Iteration: 70000     Residual: 2.40678e-05
+Iteration: 80000     Residual: 1.78066e-05
+Iteration: 90000     Residual: 1.31754e-05
+Iteration: 100000     Residual: 9.74885e-06
+Iteration: 110000     Residual: 7.21347e-06
+Iteration: 120000     Residual: 5.33747e-06
+Iteration: 130000     Residual: 3.94935e-06
+Iteration: 140000     Residual: 2.92225e-06
+Iteration: 150000     Residual: 2.16226e-06
+Iteration: 160000     Residual: 1.59992e-06
+Iteration: 170000     Residual: 1.18383e-06
+Iteration: 180000     Residual: 8.75954e-07
+Iteration: 190000     Residual: 6.48145e-07
+Iteration: 200000     Residual: 4.79583e-07
+Iteration: 210000     Residual: 3.54858e-07
+Iteration: 220000     Residual: 2.6257e-07
+Iteration: 230000     Residual: 1.94284e-07
+Iteration: 240000     Residual: 1.43757e-07
+Iteration: 250000     Residual: 1.0637e-07
+Iteration: 260000     Residual: 7.87063e-08
+Iteration: 270000     Residual: 5.82372e-08
+Iteration: 280000     Residual: 4.30915e-08
+Iteration: 290000     Residual: 3.18847e-08
+Iteration: 300000     Residual: 2.35925e-08
+Iteration: 310000     Residual: 1.74568e-08
+Iteration: 320000     Residual: 1.29168e-08
+Iteration: 330000     Residual: 9.55756e-09
+Iteration: 340000     Residual: 7.07193e-09
+Iteration: 350000     Residual: 5.23274e-09
+Iteration: 360000     Residual: 3.87186e-09
+Iteration: 370000     Residual: 2.86491e-09
+Iteration: 380000     Residual: 2.11984e-09
+Iteration: 390000     Residual: 1.56853e-09
+Iteration: 400000     Residual: 1.1606e-09
+Iteration: 410000     Residual: 8.58767e-10
+Iteration: 420000     Residual: 6.35428e-10
+Iteration: 430000     Residual: 4.70173e-10
+Iteration: 440000     Residual: 3.47895e-10
+Iteration: 450000     Residual: 2.57418e-10
+Iteration: 460000     Residual: 1.90472e-10
+Iteration: 470000     Residual: 1.40936e-10
+Iteration: 480000     Residual: 1.04283e-10
+Iteration: 490000     Residual: 7.71622e-11
+Iteration: 500000     Residual: 5.70946e-11
+Iteration: 510000     Residual: 4.2246e-11
+Iteration: 520000     Residual: 3.12592e-11
+Iteration: 530000     Residual: 2.31297e-11
+Iteration: 540000     Residual: 1.71143e-11
+Iteration: 550000     Residual: 1.26634e-11
+Iteration: 560000     Residual: 9.36997e-12
+Iteration: 570000     Residual: 6.93317e-12
+Iteration: 580000     Residual: 5.13011e-12
+Iteration: 590000     Residual: 3.79583e-12
+Iteration: 600000     Residual: 2.80877e-12
+Iteration: 610000     Residual: 2.07818e-12
+Iteration: 620000     Residual: 1.5378e-12
+Iteration: 630000     Residual: 1.1378e-12
+Iteration: 640000     Residual: 8.41938e-13
+Iteration: 650000     Residual: 6.22968e-13
+Iteration: 660000     Residual: 4.60948e-13
+Iteration: 670000     Residual: 3.40955e-13
+Iteration: 680000     Residual: 2.52316e-13
+Iteration: 690000     Residual: 1.8673e-13
+Iteration: 700000     Residual: 1.38189e-13
+Iteration: 710000     Residual: 1.02386e-13
+Iteration: 720000     Residual: 7.56976e-14
+Iteration: 730000     Residual: 5.60385e-14
+Iteration: 740000     Residual: 4.13907e-14
+Iteration: 750000     Residual: 3.0695e-14
+Iteration: 760000     Residual: 2.27318e-14
+Iteration: 770000     Residual: 1.68687e-14
+Iteration: 780000     Residual: 1.24212e-14
+Iteration: 790000     Residual: 9.22527e-15
+Iteration: 800000     Residual: 6.90256e-15
+Iteration: 810000     Residual: 5.24212e-15
+Iteration: 820000     Residual: 3.89314e-15
+Iteration: 830000     Residual: 2.84e-15
+Iteration: 840000     Residual: 2.30495e-15
+Iteration: 850000     Residual: 1.52588e-15
+Iteration: 853530     Residual: 9.72772e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 1.39398e+02 secs ( 99.9862 %) | [1.39398e+02  0.00000e+00          1]
+--> Main Program        : 1.17407e-02 secs (  0.0084 %) | [1.17407e-02  0.00000e+00          1]
+--> Initialization      : 5.25904e-03 secs (  0.0038 %) | [5.25904e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.06208e-03 secs (  0.0015 %) | [2.06208e-03  0.00000e+00          1]
+--> Build Elements      : 2.18153e-04 secs (  0.0002 %) | [2.18153e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 8.34465e-06 secs (  0.0000 %)
+
+    Total Measured Time = 1.39417e+02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 256
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 2
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 4.93391e-02 secs ( 71.7994 %) | [4.93391e-02  0.00000e+00          1]
+--> Main Program        : 1.15666e-02 secs ( 16.8320 %) | [1.15666e-02  0.00000e+00          1]
+--> Initialization      : 5.38492e-03 secs (  7.8363 %) | [5.38492e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.18916e-03 secs (  3.1857 %) | [2.18916e-03  0.00000e+00          1]
+--> Build Elements      : 2.32935e-04 secs (  0.3390 %) | [2.32935e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 5.24521e-06 secs (  0.0076 %)
+
+    Total Measured Time = 6.87180e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 32
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 1.86062e-11
+Iteration: 15083     Residual: 9.40521e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 4.65891e-02 secs ( 84.5217 %) | [4.65891e-02  0.00000e+00          1]
+--> Initialization      : 5.76615e-03 secs ( 10.4609 %) | [5.76615e-03  0.00000e+00          1]
+--> Main Program        : 2.41518e-03 secs (  4.3816 %) | [2.41518e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.47002e-04 secs (  0.4481 %) | [2.47002e-04  0.00000e+00          1]
+--> Build Elements      : 9.70364e-05 secs (  0.1760 %) | [9.70364e-05  0.00000e+00          1]
+--> GRVY_Unassigned     : 6.43730e-06 secs (  0.0117 %)
+
+    Total Measured Time = 5.51209e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 32
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 5442     Residual: -nan
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 1.00410e-02 secs ( 57.3282 %) | [1.00410e-02  0.00000e+00          1]
+--> Initialization      : 4.79817e-03 secs ( 27.3947 %) | [4.79817e-03  0.00000e+00          1]
+--> Main Program        : 2.34723e-03 secs ( 13.4013 %) | [2.34723e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.36034e-04 secs (  1.3476 %) | [2.36034e-04  0.00000e+00          1]
+--> Build Elements      : 8.70228e-05 secs (  0.4968 %) | [8.70228e-05  0.00000e+00          1]
+--> GRVY_Unassigned     : 5.48363e-06 secs (  0.0313 %)
+
+    Total Measured Time = 1.75149e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 5408     Residual: -nan
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 3.33340e-02 secs ( 75.5685 %) | [3.33340e-02  0.00000e+00          1]
+--> Initialization      : 6.49595e-03 secs ( 14.7264 %) | [6.49595e-03  0.00000e+00          1]
+--> Main Program        : 3.69477e-03 secs (  8.3761 %) | [3.69477e-03  0.00000e+00          1]
+--> Assemble Equations  : 4.67062e-04 secs (  1.0588 %) | [4.67062e-04  0.00000e+00          1]
+--> Build Elements      : 1.12057e-04 secs (  0.2540 %) | [1.12057e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 7.15256e-06 secs (  0.0162 %)
+
+    Total Measured Time = 4.41110e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 128
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 5398     Residual: -nan
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 1.37749e-01 secs ( 91.7232 %) | [1.37749e-01  0.00000e+00          1]
+--> Main Program        : 6.53195e-03 secs (  4.3494 %) | [6.53195e-03  0.00000e+00          1]
+--> Initialization      : 4.83799e-03 secs (  3.2215 %) | [4.83799e-03  0.00000e+00          1]
+--> Assemble Equations  : 9.02891e-04 secs (  0.6012 %) | [9.02891e-04  0.00000e+00          1]
+--> Build Elements      : 1.38044e-04 secs (  0.0919 %) | [1.38044e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 1.90735e-05 secs (  0.0127 %)
+
+    Total Measured Time = 1.50179e-01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 256
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+(fread: Using pre-registered value for variable): order -> 2 
+Shape function order =  2
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 5396     Residual: -nan
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 5.96712e-01 secs ( 96.9414 %) | [5.96712e-01  0.00000e+00          1]
+--> Main Program        : 1.13971e-02 secs (  1.8516 %) | [1.13971e-02  0.00000e+00          1]
+--> Initialization      : 5.21612e-03 secs (  0.8474 %) | [5.21612e-03  0.00000e+00          1]
+--> Assemble Equations  : 1.99199e-03 secs (  0.3236 %) | [1.99199e-03  0.00000e+00          1]
+--> Build Elements      : 2.14100e-04 secs (  0.0348 %) | [2.14100e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 7.39098e-06 secs (  0.0012 %)
+
+    Total Measured Time = 6.15539e-01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 32
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 6166     Residual: 9.57467e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Initialization      : 6.08611e-03 secs ( 50.7556 %) | [6.08611e-03  0.00000e+00          1]
+--> Solve Equations     : 3.81684e-03 secs ( 31.8308 %) | [3.81684e-03  0.00000e+00          1]
+--> Main Program        : 1.82319e-03 secs ( 15.2046 %) | [1.82319e-03  0.00000e+00          1]
+--> Assemble Equations  : 1.57833e-04 secs (  1.3163 %) | [1.57833e-04  0.00000e+00          1]
+--> Build Elements      : 8.82149e-05 secs (  0.7357 %) | [8.82149e-05  0.00000e+00          1]
+--> GRVY_Unassigned     : 1.88351e-05 secs (  0.1571 %)
+
+    Total Measured Time = 1.19910e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 2.08694e-08
+Iteration: 20000     Residual: 1.21768e-13
+Iteration: 24021     Residual: 9.97422e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 4.08900e-02 secs ( 82.6626 %) | [4.08900e-02  0.00000e+00          1]
+--> Initialization      : 5.69296e-03 secs ( 11.5088 %) | [5.69296e-03  0.00000e+00          1]
+--> Main Program        : 2.51102e-03 secs (  5.0762 %) | [2.51102e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.51055e-04 secs (  0.5075 %) | [2.51055e-04  0.00000e+00          1]
+--> Build Elements      : 9.91821e-05 secs (  0.2005 %) | [9.91821e-05  0.00000e+00          1]
+--> GRVY_Unassigned     : 2.19345e-05 secs (  0.0443 %)
+
+    Total Measured Time = 4.94661e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 128
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 6.21881e-05
+Iteration: 20000     Residual: 3.05841e-06
+Iteration: 30000     Residual: 1.50413e-07
+Iteration: 40000     Residual: 7.39733e-09
+Iteration: 50000     Residual: 3.638e-10
+Iteration: 60000     Residual: 1.78921e-11
+Iteration: 70000     Residual: 8.77425e-13
+Iteration: 80000     Residual: 4.48233e-14
+Iteration: 90000     Residual: 2.48671e-15
+Iteration: 92907     Residual: 9.90588e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 5.13271e-01 secs ( 97.8408 %) | [5.13271e-01  0.00000e+00          1]
+--> Initialization      : 6.50883e-03 secs (  1.2407 %) | [6.50883e-03  0.00000e+00          1]
+--> Main Program        : 4.21500e-03 secs (  0.8035 %) | [4.21500e-03  0.00000e+00          1]
+--> Assemble Equations  : 4.63963e-04 secs (  0.0884 %) | [4.63963e-04  0.00000e+00          1]
+--> Build Elements      : 1.33038e-04 secs (  0.0254 %) | [1.33038e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 6.19888e-06 secs (  0.0012 %)
+
+    Total Measured Time = 5.24598e-01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 256
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 0.000267008
+Iteration: 20000     Residual: 9.94575e-05
+Iteration: 30000     Residual: 4.66861e-05
+Iteration: 40000     Residual: 2.19859e-05
+Iteration: 50000     Residual: 1.03542e-05
+Iteration: 60000     Residual: 4.87627e-06
+Iteration: 70000     Residual: 2.29646e-06
+Iteration: 80000     Residual: 1.08151e-06
+Iteration: 90000     Residual: 5.09335e-07
+Iteration: 100000     Residual: 2.3987e-07
+Iteration: 110000     Residual: 1.12966e-07
+Iteration: 120000     Residual: 5.32009e-08
+Iteration: 130000     Residual: 2.50548e-08
+Iteration: 140000     Residual: 1.17995e-08
+Iteration: 150000     Residual: 5.55693e-09
+Iteration: 160000     Residual: 2.61701e-09
+Iteration: 170000     Residual: 1.23248e-09
+Iteration: 180000     Residual: 5.80429e-10
+Iteration: 190000     Residual: 2.73351e-10
+Iteration: 200000     Residual: 1.2873e-10
+Iteration: 210000     Residual: 6.06247e-11
+Iteration: 220000     Residual: 2.85589e-11
+Iteration: 230000     Residual: 1.34468e-11
+Iteration: 240000     Residual: 6.33168e-12
+Iteration: 250000     Residual: 2.98326e-12
+Iteration: 260000     Residual: 1.40433e-12
+Iteration: 270000     Residual: 6.61668e-13
+Iteration: 280000     Residual: 3.13413e-13
+Iteration: 290000     Residual: 1.45896e-13
+Iteration: 300000     Residual: 6.87413e-14
+Iteration: 310000     Residual: 3.13485e-14
+Iteration: 320000     Residual: 1.57221e-14
+Iteration: 330000     Residual: 8.03582e-15
+Iteration: 340000     Residual: 3.66417e-15
+Iteration: 350000     Residual: 1.77496e-15
+Iteration: 356858     Residual: 9.91377e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 7.96419e+00 secs ( 99.8330 %) | [7.96419e+00  0.00000e+00          1]
+--> Main Program        : 6.40702e-03 secs (  0.0803 %) | [6.40702e-03  0.00000e+00          1]
+--> Initialization      : 5.79715e-03 secs (  0.0727 %) | [5.79715e-03  0.00000e+00          1]
+--> Assemble Equations  : 9.22918e-04 secs (  0.0116 %) | [9.22918e-04  0.00000e+00          1]
+--> Build Elements      : 1.85966e-04 secs (  0.0023 %) | [1.85966e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 7.86781e-06 secs (  0.0001 %)
+
+    Total Measured Time = 7.97751e+00 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 512
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 0
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 0.000583942
+Iteration: 20000     Residual: 0.000283914
+Iteration: 30000     Residual: 0.000152605
+Iteration: 40000     Residual: 9.44004e-05
+Iteration: 50000     Residual: 6.74423e-05
+Iteration: 60000     Residual: 5.26678e-05
+Iteration: 70000     Residual: 4.2738e-05
+Iteration: 80000     Residual: 3.51622e-05
+Iteration: 90000     Residual: 2.90635e-05
+Iteration: 100000     Residual: 2.4059e-05
+Iteration: 110000     Residual: 1.9926e-05
+Iteration: 120000     Residual: 1.65056e-05
+Iteration: 130000     Residual: 1.36731e-05
+Iteration: 140000     Residual: 1.13268e-05
+Iteration: 150000     Residual: 9.38318e-06
+Iteration: 160000     Residual: 7.7731e-06
+Iteration: 170000     Residual: 6.4393e-06
+Iteration: 180000     Residual: 5.33437e-06
+Iteration: 190000     Residual: 4.41904e-06
+Iteration: 200000     Residual: 3.66077e-06
+Iteration: 210000     Residual: 3.03261e-06
+Iteration: 220000     Residual: 2.51224e-06
+Iteration: 230000     Residual: 2.08116e-06
+Iteration: 240000     Residual: 1.72405e-06
+Iteration: 250000     Residual: 1.42822e-06
+Iteration: 260000     Residual: 1.18315e-06
+Iteration: 270000     Residual: 9.8013e-07
+Iteration: 280000     Residual: 8.11948e-07
+Iteration: 290000     Residual: 6.72625e-07
+Iteration: 300000     Residual: 5.57208e-07
+Iteration: 310000     Residual: 4.61596e-07
+Iteration: 320000     Residual: 3.8239e-07
+Iteration: 330000     Residual: 3.16775e-07
+Iteration: 340000     Residual: 2.62419e-07
+Iteration: 350000     Residual: 2.1739e-07
+Iteration: 360000     Residual: 1.80088e-07
+Iteration: 370000     Residual: 1.49186e-07
+Iteration: 380000     Residual: 1.23587e-07
+Iteration: 390000     Residual: 1.02381e-07
+Iteration: 400000     Residual: 8.4813e-08
+Iteration: 410000     Residual: 7.02598e-08
+Iteration: 420000     Residual: 5.82039e-08
+Iteration: 430000     Residual: 4.82166e-08
+Iteration: 440000     Residual: 3.9943e-08
+Iteration: 450000     Residual: 3.30891e-08
+Iteration: 460000     Residual: 2.74113e-08
+Iteration: 470000     Residual: 2.27078e-08
+Iteration: 480000     Residual: 1.88113e-08
+Iteration: 490000     Residual: 1.55834e-08
+Iteration: 500000     Residual: 1.29095e-08
+Iteration: 510000     Residual: 1.06943e-08
+Iteration: 520000     Residual: 8.85926e-09
+Iteration: 530000     Residual: 7.33909e-09
+Iteration: 540000     Residual: 6.07977e-09
+Iteration: 550000     Residual: 5.03653e-09
+Iteration: 560000     Residual: 4.1723e-09
+Iteration: 570000     Residual: 3.45637e-09
+Iteration: 580000     Residual: 2.86329e-09
+Iteration: 590000     Residual: 2.37197e-09
+Iteration: 600000     Residual: 1.96495e-09
+Iteration: 610000     Residual: 1.62778e-09
+Iteration: 620000     Residual: 1.34847e-09
+Iteration: 630000     Residual: 1.11708e-09
+Iteration: 640000     Residual: 9.25405e-10
+Iteration: 650000     Residual: 7.66616e-10
+Iteration: 660000     Residual: 6.35069e-10
+Iteration: 670000     Residual: 5.26095e-10
+Iteration: 680000     Residual: 4.35828e-10
+Iteration: 690000     Residual: 3.61044e-10
+Iteration: 700000     Residual: 2.9909e-10
+Iteration: 710000     Residual: 2.47769e-10
+Iteration: 720000     Residual: 2.0525e-10
+Iteration: 730000     Residual: 1.70032e-10
+Iteration: 740000     Residual: 1.40859e-10
+Iteration: 750000     Residual: 1.16697e-10
+Iteration: 760000     Residual: 9.66735e-11
+Iteration: 770000     Residual: 8.00819e-11
+Iteration: 780000     Residual: 6.6341e-11
+Iteration: 790000     Residual: 5.49589e-11
+Iteration: 800000     Residual: 4.55318e-11
+Iteration: 810000     Residual: 3.77193e-11
+Iteration: 820000     Residual: 3.12424e-11
+Iteration: 830000     Residual: 2.58792e-11
+Iteration: 840000     Residual: 2.14383e-11
+Iteration: 850000     Residual: 1.77592e-11
+Iteration: 860000     Residual: 1.47185e-11
+Iteration: 870000     Residual: 1.2195e-11
+Iteration: 880000     Residual: 1.00985e-11
+Iteration: 890000     Residual: 8.36754e-12
+Iteration: 900000     Residual: 6.93543e-12
+Iteration: 910000     Residual: 5.74248e-12
+Iteration: 920000     Residual: 4.75698e-12
+Iteration: 930000     Residual: 3.94131e-12
+Iteration: 940000     Residual: 3.26789e-12
+Iteration: 950000     Residual: 2.70198e-12
+Iteration: 960000     Residual: 2.2341e-12
+Iteration: 970000     Residual: 1.84816e-12
+Iteration: 980000     Residual: 1.52723e-12
+Iteration: 990000     Residual: 1.26824e-12
+Iteration: 1000000     Residual: 1.05091e-12
+Iteration: 1010000     Residual: 8.73772e-13
+Iteration: 1020000     Residual: 7.24196e-13
+Iteration: 1030000     Residual: 6.00795e-13
+Iteration: 1040000     Residual: 5.00332e-13
+Iteration: 1050000     Residual: 4.141e-13
+Iteration: 1060000     Residual: 3.44973e-13
+Iteration: 1070000     Residual: 2.84087e-13
+Iteration: 1080000     Residual: 2.33744e-13
+Iteration: 1090000     Residual: 1.9306e-13
+Iteration: 1100000     Residual: 1.63517e-13
+Iteration: 1110000     Residual: 1.34818e-13
+Iteration: 1120000     Residual: 1.11409e-13
+Iteration: 1130000     Residual: 9.35849e-14
+Iteration: 1140000     Residual: 7.68337e-14
+Iteration: 1150000     Residual: 6.37588e-14
+Iteration: 1160000     Residual: 5.38472e-14
+Iteration: 1170000     Residual: 4.40345e-14
+Iteration: 1180000     Residual: 3.61359e-14
+Iteration: 1190000     Residual: 3.07684e-14
+Iteration: 1200000     Residual: 2.57737e-14
+Iteration: 1210000     Residual: 2.14872e-14
+Iteration: 1220000     Residual: 1.82983e-14
+Iteration: 1230000     Residual: 1.5408e-14
+Iteration: 1240000     Residual: 1.27516e-14
+Iteration: 1250000     Residual: 1.04745e-14
+Iteration: 1260000     Residual: 8.73171e-15
+Iteration: 1270000     Residual: 7.38725e-15
+Iteration: 1280000     Residual: 6.09685e-15
+Iteration: 1290000     Residual: 5.07663e-15
+Iteration: 1300000     Residual: 4.23813e-15
+Iteration: 1310000     Residual: 3.47284e-15
+Iteration: 1320000     Residual: 2.70976e-15
+Iteration: 1330000     Residual: 2.57665e-15
+Iteration: 1340000     Residual: 2.25253e-15
+Iteration: 1350000     Residual: 1.76363e-15
+Iteration: 1360000     Residual: 1.37703e-15
+Iteration: 1370000     Residual: 1.30447e-15
+Iteration: 1372089     Residual: 9.94622e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 1.22607e+02 secs ( 99.9845 %) | [1.22607e+02  0.00000e+00          1]
+--> Main Program        : 1.13919e-02 secs (  0.0093 %) | [1.13919e-02  0.00000e+00          1]
+--> Initialization      : 5.30005e-03 secs (  0.0043 %) | [5.30005e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.03991e-03 secs (  0.0017 %) | [2.03991e-03  0.00000e+00          1]
+--> Build Elements      : 3.05176e-04 secs (  0.0002 %) | [3.05176e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 1.00136e-05 secs (  0.0000 %)
+
+    Total Measured Time = 1.22626e+02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 32
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 3169     Residual: 9.83758e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Initialization      : 5.38206e-03 secs ( 53.5589 %) | [5.38206e-03  0.00000e+00          1]
+--> Solve Equations     : 2.73299e-03 secs ( 27.1970 %) | [2.73299e-03  0.00000e+00          1]
+--> Main Program        : 1.66941e-03 secs ( 16.6129 %) | [1.66941e-03  0.00000e+00          1]
+--> Assemble Equations  : 1.64986e-04 secs (  1.6418 %) | [1.64986e-04  0.00000e+00          1]
+--> Build Elements      : 9.20296e-05 secs (  0.9158 %) | [9.20296e-05  0.00000e+00          1]
+--> GRVY_Unassigned     : 7.39098e-06 secs (  0.0736 %)
+
+    Total Measured Time = 1.00489e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 64
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 2.17888e-13
+Iteration: 12253     Residual: 9.88348e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 3.64249e-02 secs ( 80.5573 %) | [3.64249e-02  0.00000e+00          1]
+--> Initialization      : 5.98884e-03 secs ( 13.2449 %) | [5.98884e-03  0.00000e+00          1]
+--> Main Program        : 2.44808e-03 secs (  5.4142 %) | [2.44808e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.46048e-04 secs (  0.5442 %) | [2.46048e-04  0.00000e+00          1]
+--> Build Elements      : 1.02997e-04 secs (  0.2278 %) | [1.02997e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 5.24521e-06 secs (  0.0116 %)
+
+    Total Measured Time = 4.52161e-02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 128
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 5.14488e-06
+Iteration: 20000     Residual: 1.24438e-08
+Iteration: 30000     Residual: 3.00977e-11
+Iteration: 40000     Residual: 7.27583e-14
+Iteration: 46943     Residual: 9.99738e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 5.17530e-01 secs ( 97.4370 %) | [5.17530e-01  0.00000e+00          1]
+--> Initialization      : 9.31096e-03 secs (  1.7530 %) | [9.31096e-03  0.00000e+00          1]
+--> Main Program        : 3.71981e-03 secs (  0.7003 %) | [3.71981e-03  0.00000e+00          1]
+--> Assemble Equations  : 4.46081e-04 secs (  0.0840 %) | [4.46081e-04  0.00000e+00          1]
+--> Build Elements      : 1.29938e-04 secs (  0.0245 %) | [1.29938e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 6.43730e-06 secs (  0.0012 %)
+
+    Total Measured Time = 5.31143e-01 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 256
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 0.000161653
+Iteration: 20000     Residual: 3.57706e-05
+Iteration: 30000     Residual: 7.93373e-06
+Iteration: 40000     Residual: 1.75963e-06
+Iteration: 50000     Residual: 3.9027e-07
+Iteration: 60000     Residual: 8.65584e-08
+Iteration: 70000     Residual: 1.91979e-08
+Iteration: 80000     Residual: 4.25791e-09
+Iteration: 90000     Residual: 9.44367e-10
+Iteration: 100000     Residual: 2.09452e-10
+Iteration: 110000     Residual: 4.64546e-11
+Iteration: 120000     Residual: 1.03032e-11
+Iteration: 130000     Residual: 2.28515e-12
+Iteration: 140000     Residual: 5.06822e-13
+Iteration: 150000     Residual: 1.12298e-13
+Iteration: 160000     Residual: 2.50549e-14
+Iteration: 170000     Residual: 5.31399e-15
+Iteration: 180000     Residual: 1.44952e-15
+Iteration: 180971     Residual: 9.9436e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 7.73425e+00 secs ( 99.8337 %) | [7.73425e+00  0.00000e+00          1]
+--> Main Program        : 6.14476e-03 secs (  0.0793 %) | [6.14476e-03  0.00000e+00          1]
+--> Initialization      : 5.63693e-03 secs (  0.0728 %) | [5.63693e-03  0.00000e+00          1]
+--> Assemble Equations  : 8.97884e-04 secs (  0.0116 %) | [8.97884e-04  0.00000e+00          1]
+--> Build Elements      : 1.80006e-04 secs (  0.0023 %) | [1.80006e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 2.02656e-05 secs (  0.0003 %)
+
+    Total Measured Time = 7.74713e+00 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+
+Use MASA?  = 1
+Output File = masa_2nd_8.txt
+n_x = 512
+Xmin = 0
+Xmax = 3
+(fread: Using pre-registered value for variable): Dirichlet -> 0 
+Dirichlet BC  = 0
+Shape function order =  1
+Number of quadrature points = 4
+Solution method = 1
+Tolerance (methods 1,2) = 1e-15
+Solution maximum iterations = 10000000
+Report convergence = 1
+Report Interval = 10000
+Iteration: 10000     Residual: 0.000488602
+Iteration: 20000     Residual: 0.000155695
+Iteration: 30000     Residual: 8.45232e-05
+Iteration: 40000     Residual: 5.62262e-05
+Iteration: 50000     Residual: 3.84697e-05
+Iteration: 60000     Residual: 2.63949e-05
+Iteration: 70000     Residual: 1.81141e-05
+Iteration: 80000     Residual: 1.24311e-05
+Iteration: 90000     Residual: 8.53105e-06
+Iteration: 100000     Residual: 5.85453e-06
+Iteration: 110000     Residual: 4.01774e-06
+Iteration: 120000     Residual: 2.75722e-06
+Iteration: 130000     Residual: 1.89217e-06
+Iteration: 140000     Residual: 1.29852e-06
+Iteration: 150000     Residual: 8.91124e-07
+Iteration: 160000     Residual: 6.11543e-07
+Iteration: 170000     Residual: 4.19678e-07
+Iteration: 180000     Residual: 2.88008e-07
+Iteration: 190000     Residual: 1.97649e-07
+Iteration: 200000     Residual: 1.35639e-07
+Iteration: 210000     Residual: 9.30834e-08
+Iteration: 220000     Residual: 6.38795e-08
+Iteration: 230000     Residual: 4.3838e-08
+Iteration: 240000     Residual: 3.00843e-08
+Iteration: 250000     Residual: 2.06456e-08
+Iteration: 260000     Residual: 1.41683e-08
+Iteration: 270000     Residual: 9.72314e-09
+Iteration: 280000     Residual: 6.67261e-09
+Iteration: 290000     Residual: 4.57915e-09
+Iteration: 300000     Residual: 3.14249e-09
+Iteration: 310000     Residual: 2.15657e-09
+Iteration: 320000     Residual: 1.47997e-09
+Iteration: 330000     Residual: 1.01564e-09
+Iteration: 340000     Residual: 6.96995e-10
+Iteration: 350000     Residual: 4.7832e-10
+Iteration: 360000     Residual: 3.28252e-10
+Iteration: 370000     Residual: 2.25267e-10
+Iteration: 380000     Residual: 1.54592e-10
+Iteration: 390000     Residual: 1.0609e-10
+Iteration: 400000     Residual: 7.28055e-11
+Iteration: 410000     Residual: 4.99637e-11
+Iteration: 420000     Residual: 3.4288e-11
+Iteration: 430000     Residual: 2.35305e-11
+Iteration: 440000     Residual: 1.6148e-11
+Iteration: 450000     Residual: 1.10818e-11
+Iteration: 460000     Residual: 7.60504e-12
+Iteration: 470000     Residual: 5.21892e-12
+Iteration: 480000     Residual: 3.58154e-12
+Iteration: 490000     Residual: 2.45783e-12
+Iteration: 500000     Residual: 1.68674e-12
+Iteration: 510000     Residual: 1.15762e-12
+Iteration: 520000     Residual: 7.94489e-13
+Iteration: 530000     Residual: 5.45171e-13
+Iteration: 540000     Residual: 3.74049e-13
+Iteration: 550000     Residual: 2.56884e-13
+Iteration: 560000     Residual: 1.76139e-13
+Iteration: 570000     Residual: 1.2093e-13
+Iteration: 580000     Residual: 8.29728e-14
+Iteration: 590000     Residual: 5.69931e-14
+Iteration: 600000     Residual: 3.90898e-14
+Iteration: 610000     Residual: 2.68693e-14
+Iteration: 620000     Residual: 1.84353e-14
+Iteration: 630000     Residual: 1.27348e-14
+Iteration: 640000     Residual: 8.78041e-15
+Iteration: 650000     Residual: 6.11474e-15
+Iteration: 660000     Residual: 3.93237e-15
+Iteration: 670000     Residual: 3.17513e-15
+Iteration: 680000     Residual: 1.8939e-15
+Iteration: 690000     Residual: 1.49976e-15
+Iteration: 691245     Residual: 9.87196e-16
+
+-----------------------------------------------------------------------------------------------
+1d FEM Timer - Performance Timings:                     |      Mean      Variance       Count
+--> Solve Equations     : 1.17141e+02 secs ( 99.9831 %) | [1.17141e+02  0.00000e+00          1]
+--> Main Program        : 1.14536e-02 secs (  0.0098 %) | [1.14536e-02  0.00000e+00          1]
+--> Initialization      : 5.82695e-03 secs (  0.0050 %) | [5.82695e-03  0.00000e+00          1]
+--> Assemble Equations  : 2.17509e-03 secs (  0.0019 %) | [2.17509e-03  0.00000e+00          1]
+--> Build Elements      : 2.93970e-04 secs (  0.0003 %) | [2.93970e-04  0.00000e+00          1]
+--> GRVY_Unassigned     : 8.58307e-06 secs (  0.0000 %)
+
+    Total Measured Time = 1.17161e+02 secs (100.0000 %)
+-----------------------------------------------------------------------------------------------
+

@@ -1,26 +1,13 @@
-#include "elements.hpp"
-#include "./eigen3/Eigen/Dense"
-#include <vector>
-#include <iostream>
+#include <masa.h>
 
-class dummy {
-	public:
-		std::vector<Node> Nodes ;
-		void add_node(){Nodes.push_back(Node());}
-} ;
+using namespace MASA ;
 
-int main () {
-	dummy D ;
-	D.add_node() ;
-	std::cout << D.Nodes.size() << "   " << D.Nodes.capacity() << std::endl ;
-    D.add_node() ;
-	std::cout << D.Nodes.size() << "   " << D.Nodes.capacity() << std::endl ;
-	{
-		D.add_node() ;
-		D.add_node() ;
-		D.add_node() ;
-		std::cout << D.Nodes.size() << "   " << D.Nodes.capacity() << std::endl ;
-	}
-	std::cout << D.Nodes.size() << "   " << D.Nodes.capacity() << std::endl ;
-	return 0 ;
+int main() {
+    masa_init("dumb","heateq_1d_unsteady_const") ;
+    masa_disp_param() ;
+    masa_init_param() ;
+    
+    masa_disp_param() ;
+
+    masa_eval_1d_exact_t(1.0,1.0) ;
 }

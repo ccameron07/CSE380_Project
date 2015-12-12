@@ -17,7 +17,7 @@ output_file = masa_2nd_8.txt #Output file name
 # Domain Specifications
 #------------------------------------------
 
-n_x       = 512  #Number of elements in the x-direction
+n_x       = 4  #Number of elements in the x-direction
 Xmin      = 0.0  #Domain lower x boundary
 Xmax      = 3.0  #Domain upper x boundary
 Dirichlet = 0.0  #Prescribed value of T at the boundary
@@ -26,7 +26,7 @@ Dirichlet = 0.0  #Prescribed value of T at the boundary
 # Element Specifications
 #-------------------------------
 
-order = 1  #Shape function order (Valid values: 1, 2)
+order = 2  #Shape function order (Valid values: 1, 2)
 quad  = 4  #Quadrature points (accurate for polynomial of degre 2*quad-1)
 
 #--------------------------------

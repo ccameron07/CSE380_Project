@@ -161,7 +161,7 @@ TEST_CASE( "Test Instantiate a Domain1d", "[Domain1d]") {
 	double dirichlet_init = 0.0 ;
 
 	Domain1d Domain(order_init, nx_init, quad_pts_init, Xmin_init, Xmax_init, dirichlet_init ) ;
-
+    Domain.with_masa = false ;
 	Domain.forcing = [] (double x){return 1 ;} ;
 	Domain.stiffness = [] (double x){return 1;} ;
 
@@ -227,7 +227,7 @@ TEST_CASE( "Test Build Domain and Solve", "[Solver]") {
 	Domain1d Domain(order_init, nx_init, quad_pts_init, Xmin_init, Xmax_init, dirichlet_init ) ;
 	Domain.forcing = [] (double x){return 1;} ;
 	Domain.stiffness = [] (double x){return 1;} ;
-
+    Domain.with_masa = false ;
 	Domain.build_elements( ) ;
 
 	Solver Jacobi(method_init, tol_init, max_iter_init, report_interval_init, report_init) ;

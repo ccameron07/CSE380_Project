@@ -65,9 +65,8 @@ class Element1d : public Element {
 };
 
 class Domain1d {
-    private:
-        Domain1d() { }
     public:
+        Domain1d() { }
         Domain1d(int order_init, int nx_init, int quad_pts_init, double Xmin_init, double Xmax_init, double dirichlet_init) ;
         int order, nx, quad_pts;
         double Xmin, Xmax, dirichlet;

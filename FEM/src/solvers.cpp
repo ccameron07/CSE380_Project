@@ -1,9 +1,13 @@
+#include "elements.hpp"
 #include "./eigen3/Eigen/Dense"
 #include "./eigen3/Eigen/Sparse"
 #include <iostream>
 #include "solvers.hpp"
 #include <grvy.h>
+#include <masa.h>
+#include <fstream>
 
+using namespace MASA;
 using namespace Eigen;
 using namespace GRVY;
 
@@ -129,4 +133,29 @@ void Solver::solve() {
       Householder() ;
       break;
   }
+}
+
+void Solver::output(Domain1d &Domain){
+    
+    std::ofstream f ;
+    f.open(file_out);
+    f.precision(16) ;
+    
+    if(with_masa){
+        VectorXd exact = VectorXd::Zero(Domain.Nodes.size()) ;
+        for (int i = 0; i < Domain.Nodes.size(); i++) {
+            exact(i) = masa_eval_1d_exact_t( Domain.Nodes[i].coords ) ;
+        }
+    
+        f << "x,exact,approx" << std::endl ;
+        for(int i = 0; i < Domain.Nodes.size(); i++){
+            f <<  Domain.Nodes[i].coords << "," << exact(i) << ',' << x(i) << std::endl ;
+        }
+    } else {
+        f << "x,T" << std::endl ;
+        for(int i = 0; i < Domain.Nodes.size(); i++){
+        f <<  Domain.Nodes[i].coords << "," << x(i) << std::endl ;
+        }
+    }
+    f.close();
 }

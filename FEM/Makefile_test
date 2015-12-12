@@ -1,8 +1,8 @@
 SRCDIR := src/
 OBJDIR := build/
 BINDIR := bin/
-EXEC   := main
-SRCS :=   main_grvy.cpp elements.cpp solvers.cpp masa_helper.cpp
+EXEC   := test
+SRCS   := test.cpp elements.cpp solvers.cpp masa_helper.cpp
 
 SRC  :=   $(addprefix $(SRCDIR), $(SRCS))
 OBJ  :=   $(addprefix $(OBJDIR),$(patsubst %.cpp,%.o,$(SRCS))) 

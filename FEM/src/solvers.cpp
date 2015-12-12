@@ -11,6 +11,7 @@ using namespace MASA;
 using namespace Eigen;
 using namespace GRVY;
 
+//Constuctor method
 Solver::Solver(int method_init, double tol_init, int max_iter_init, int report_interval_init, bool report_init) {
   method = method_init ;
   tol = tol_init ;
@@ -19,11 +20,13 @@ Solver::Solver(int method_init, double tol_init, int max_iter_init, int report_i
   report = report_init ;
 }
 
+//Call Eigen Householder solution routine
 void Solver::Householder(){
 
     x = A.colPivHouseholderQr().solve(b) ;
 }
 
+//Call Eigen conjugate gradient solver
 void Solver::CG(){
     ConjugateGradient<SparseMatrix<double>> CG;
 
@@ -39,6 +42,7 @@ void Solver::CG(){
      }
 }
 
+
 void Solver::gaussSeidel(){
 
     VectorXd x1 = VectorXd::Zero(n) ;
@@ -46,27 +50,33 @@ void Solver::gaussSeidel(){
     MatrixXd T(n,n);
     SparseMatrix<double> Ts;
 
+    //Create T matrix and C vector for performing terations
     C = A.triangularView<Lower>().solve(b);
     T = A.triangularView<StrictlyUpper>();
     T = A.triangularView<Lower>().solve(T);
     Ts = T.sparseView(); 
+    
     iter = 0 ;
     res = 1 ;
+    //iterate until tolerance max iterations reached
     while(res > tol && iter < max_iter){
            x = -Ts*(x) + C ;
            res = (x1-x).norm();
            x1 = x;
            iter++;
 
+           //Intermittent convergence reporting
            if( iter % report_interval == 0 & report ) {
                        std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
            }
     }
 
+    //Final convergence reporting
     if( report ) {
       std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
     }
 
+    //Warning if tolerance not reached
     if(res > tol) {
       std::cout << "=========================================================="<<std::endl ;
       std::cout << " Warning Solution not converged before maximum iterations "<<std::endl ;
@@ -82,6 +92,7 @@ void Solver::jacobi(){
     MatrixXd T(n,n);
     MatrixXd D(n,n);
     
+    //Create Iterator matrix and vector
     D = A.diagonal().asDiagonal();
     C = D.inverse() * b;
     T = D.inverse() * (A-D);
@@ -94,15 +105,18 @@ void Solver::jacobi(){
            x1 = x;
            iter++;
 
+           //Intermittent Convergence reporting
            if( iter % report_interval == 0 & report ) {
                        std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
            } 
 
          }
+    //Final convergence report     
     if( report ) {
       std::cout << "Iteration: " << iter << "     Residual: " << res << std::endl ;
     }
 
+    //Warning if tolerance not reached
     if(res > tol) {
       std::cout << "=========================================================="<<std::endl ;
       std::cout << " Warning Solution not converged before maximum iterations "<<std::endl ;
@@ -111,6 +125,7 @@ void Solver::jacobi(){
     }
 }
 
+//Method to initialize A, x, and b and reserve appropriate memory
 void Solver::solution_init(int n_eq) {
     n = n_eq ;
     A = MatrixXd::Zero(n_eq, n_eq) ;
@@ -118,6 +133,7 @@ void Solver::solution_init(int n_eq) {
     x = b ;
 }
 
+//Call the solver indicated by method
 void Solver::solve() {
   switch(method){
     case 0:
@@ -135,6 +151,8 @@ void Solver::solve() {
   }
 }
 
+//Reads in domain and outputs solution and exact solution (if using MASA)
+//Also reports coordinates of each point in the domain
 void Solver::output(Domain1d &Domain){
     
     std::ofstream f ;

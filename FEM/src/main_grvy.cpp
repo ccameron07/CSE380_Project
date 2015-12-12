@@ -15,7 +15,8 @@
 using namespace MASA ;
 using namespace GRVY ;
 
-GRVY::GRVY_Timer_Class gt;
+// Initialize GRVY timer class and pre-define setup function
+GRVY::GRVY_Timer_Class gt; 
 void setup (Domain1d &D, Solver &S) ;
 
 int main() {
@@ -25,17 +26,21 @@ int main() {
     gt.BeginTimer("Main Program");
 
     gt.BeginTimer("Initialization");
+
+    //Initialized Domain and Solution with no arguments then run setup
     Domain1d Domain ;
     Solver Solution ;
-    
     setup(Domain, Solution) ;
-   
+    
+    //Reserve the appropriate amount of space for elements nodes and edges
     Domain.Elements.reserve(Domain.nx) ;
     Domain.Nodes.reserve(Domain.order*Domain.nx+1) ;
     Domain.Edges.reserve(Domain.nx) ;
 
+    //Define stiffness and forcing functions, if using MASA initialize manufactured
+    //solution
     if(Domain.with_masa){
-        Manufactured mfg("Chris Test 2","heateq_1d_steady_const");
+        Manufactured mfg("Chris Test 2","heateq_1d_steady_const"); // initialize grvy in wrapper class
         Domain.stiffness = [&mfg] (double x)->double{return mfg.stiffness;} ;
         Domain.forcing = [&mfg] (double x)->double{return mfg.forcing(x);} ;
     } else {
@@ -45,6 +50,8 @@ int main() {
     gt.EndTimer("Initialization") ;
     
     gt.BeginTimer("Build Elements") ;
+
+    //Mesh domain and build elements and nodes
     Domain.build_elements( ) ;
     if (Domain.order == 2) {
         Domain.addNodes(1);
@@ -52,17 +59,16 @@ int main() {
     gt.EndTimer("Build Elements") ;
     
     gt.BeginTimer("Assemble Equations");
- 	Solution.solution_init(Domain.Nodes.size()) ;
-	Domain.build_Ab(&Solution.A, &Solution.b);
-	Domain.add_constraints(Solution.A, Solution.b);
-    std::cout << Solution.A << std::endl ;
+ 	Solution.solution_init(Domain.Nodes.size()) ; //initialize solver
+	Domain.build_Ab(&Solution.A, &Solution.b); //Build A and b, integrating over elements
+	Domain.add_constraints(Solution.A, Solution.b); //add constraints
     gt.EndTimer("Assemble Equations");
 
     gt.BeginTimer("Solve Equations");
- 	Solution.solve() ;
+ 	Solution.solve() ; //call the solver routine
     gt.EndTimer("Solve Equations");
 
-    Solution.output(Domain);
+    Solution.output(Domain); //output the results to file specified in input_file.txt
     gt.EndTimer("Main Program");
     gt.Finalize();
     gt.Summarize();
@@ -74,7 +80,7 @@ int main() {
 
 void setup (Domain1d &D, Solver &S){
 	
-    GRVY_Input_Class iparse;
+    GRVY_Input_Class iparse; //setup iparse class and go through input_file.txt
    
     if(! iparse.Open("./input_file.txt"))
           exit(1);
@@ -120,21 +126,7 @@ void setup (Domain1d &D, Solver &S){
     if ( iparse.Read_Var("report_interval",&S.report_interval,1000) )
         std::cout << "Report Interval = " << S.report_interval << std::endl ;
 }
-    /*
-    int order_init = 2 ; 
-	int nx_init = 8; 
-	int quad_pts_init = 4 ; 
-	double Xmin_init = 0 ; 
-	double Xmax_init = 4 ; 
-	double dirichlet_init = 0.0 ;
-	int method_init = 3 ;
-	double tol_init = 1e-14 ;
-	int max_iter_init = 1000000 ;
-    int report_interval = 1000 ;
-    bool report = true ;
-    bool with_masa = true ;
-    std::string file_out = "masa_validate_2nd_sparse_8.txt";
-    */
+
 
 
 

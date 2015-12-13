@@ -27,7 +27,7 @@ Dirichlet = 0.0  #Prescribed value of T at the boundary
 #-------------------------------
 
 order = 2  #Shape function order (Valid values: 1, 2)
-quad  = 4  #Quadrature points (accurate for polynomial of degre 2*quad-1)
+quad  = 4  #Quadrature points (max: 4) (accurate for poly degree 2*quad-1)
 
 #--------------------------------
 # Solver Specifications

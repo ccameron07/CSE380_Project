@@ -21,3 +21,8 @@ Navigate to the FEM folder which should contain two files, Makefile and Makefile
 
 * Run make from the FEM folder to build main in the bin/ folder.  
 * Run make -f Makefile\_test to build the catch tests into the bin/ folder
+
+##Running
+
+Run the binary main to run the program.  The file input\_file.txt controls the program behavior.  Most options
+are well documented.  To run in verification mode set with\_masa to 1.
